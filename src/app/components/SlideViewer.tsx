@@ -487,7 +487,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               {screen.type === "opening" ? (
                 <>
                   {!screen.backgroundVideo && <TimelapseBackground />}
-                  <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)] backdrop-blur-[0.5px]" />
+                  <div className="absolute inset-0 bg-[rgba(0,0,0,0.35)] backdrop-blur-[0.5px]" />
                 </>
               ) : screen.chapter === 3 ? (
                 <>
