@@ -3,6 +3,7 @@ import chapter2Video from "../../imports/chapter_2_Intro-1.mp4";
 import chapter1Video from "../../imports/AdobeStock_1909972656_Video_4K_Preview.mp4";
 import chapter3Video from "../../imports/Adobe_Express_-_AdobeStock_1681926270_Video_HD_Preview.mp4";
 import annaScreenRecording from "../../imports/Screen_Recording_2026-04-09_at_12.57.31 PM.mp4";
+import scene13Video from "../../imports/Scene 13.mp4";
 import scottImgFile from "../../imports/image-5.png";
 import johnathanImgFile from "../../imports/image-6.png";
 import annaImgFile from "../../imports/image-7.png";
@@ -50,7 +51,7 @@ const WAR_ROOM_IMG = "https://images.unsplash.com/photo-1769740333462-9a63bfa914
 const MEETING_VIDEO = chapter2Video;
 const CHAPTER3_VIDEO = chapter3Video;
 const ANNA_VIDEO = annaScreenRecording;
-const ANNA_BG_VIDEO = chapter3Video;
+const ANNA_BG_VIDEO = scene13Video;
 const JOHNATHAN_BG_VIDEO = chapter3Video;
 const JOHNATHAN_IMG = johnathanImgFile;
 const ANNA_IMG = annaImgFile;
