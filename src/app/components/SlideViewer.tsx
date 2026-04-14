@@ -605,11 +605,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <ExplainerCard text={screen.overlayCard!.text} />
                       </div>
                     </>
-                  ) : (
-                    <div className={`absolute ${screen.chapter === 3 ? "left-[200px] top-[545px]" : "left-[calc(12.5%+101.75px)] top-[533px]"}`}>
-                      <RedTooltip />
-                    </div>
-                  )}
+                  ) : null}
 
                   {screen.appUIType && (
                     <div className="absolute right-[calc(12.5%+28px)] top-1/2 -translate-y-1/2">
@@ -640,9 +636,6 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                   <p className="absolute text-white text-[20px] leading-[28px] tracking-[0.064px] w-[485px] whitespace-pre-wrap"
                     style={{ fontFamily: F, fontWeight: 400, left: "47px", top: "calc(50% - 100px)" }}
                   >{screen.body}</p>
-                  <div className={`absolute ${screen.chapter === 3 ? "left-[200px] top-[545px]" : "left-[calc(12.5%+101.75px)] top-[533px]"}`}>
-                    <RedTooltip />
-                  </div>
                   {screen.notificationCard && (
                     <div className={`absolute ${screen.chapter === 1 ? "right-[calc(12.5%+28px)] top-1/2 -translate-y-1/2" : "right-[80px] top-[138px]"}`}>
                       {screen.chapter === 1 ? (
@@ -714,11 +707,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <ExplainerCard text={screen.overlayCard!.text} />
                       </div>
                     </>
-                  ) : (
-                    <div className={`absolute ${screen.chapter === 3 ? "left-[200px] top-[545px]" : "left-[calc(12.5%+101.75px)] top-[533px]"}`}>
-                      <RedTooltip />
-                    </div>
-                  )}
+                  ) : null}
 
                   {/* Dashboard: iframe or DashboardUI */}
                   {screen.iframeUrl ? (
