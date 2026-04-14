@@ -53,7 +53,7 @@ const MEETING_VIDEO = chapter2Video;
 const CHAPTER3_VIDEO = chapter3Video;
 const ANNA_VIDEO = annaScreenRecording;
 const ANNA_BG_VIDEO = scene13Video;
-const JOHNATHAN_BG_VIDEO = chapter3Video;
+const JOHNATHAN_BG_VIDEO = chp3IntroVideo;
 const JOHNATHAN_IMG = johnathanImgFile;
 const ANNA_IMG = annaImgFile;
 
@@ -419,7 +419,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "narrative",
     background: "scene",
-    backgroundVideo: chp3IntroVideo,
+    backgroundVideo: JOHNATHAN_BG_VIDEO,
     personaImage: JOHNATHAN_IMG,
     personaSmall: true,
     voiceCommand: "Approve order",
@@ -433,7 +433,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "persona",
     background: "scene",
-    backgroundVideo: chp3IntroVideo,
+    backgroundVideo: ANNA_BG_VIDEO,
     personaImage: ANNA_IMG,
     personaName: "Anna",
     body: "Meet SCM Manager Anna.",
@@ -443,7 +443,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "narrative",
     background: "scene",
-    backgroundVideo: chp3IntroVideo,
+    backgroundVideo: ANNA_BG_VIDEO,
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Anna is the Manager of Harvest\u2019s House Supply Chain. She is tasked with overseeing the flow of products from suppliers to stores or fulfillment centers.",
@@ -453,7 +453,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "notification",
     background: "scene",
-    backgroundVideo: chp3IntroVideo,
+    backgroundVideo: ANNA_BG_VIDEO,
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Anna receives a notification from her SCM dashboard. The notification is an alert mechanism coming from the Supply Chain Agent to approve immediate re-order of critical SKUs from relevant suppliers.",
@@ -469,7 +469,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "dashboard",
     background: "scene",
-    backgroundVideo: chp3IntroVideo,
+    backgroundVideo: ANNA_BG_VIDEO,
     personaImage: ANNA_IMG,
     personaSmall: true,
     voiceCommand: "View incident details",
@@ -489,7 +489,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "dashboard",
     background: "scene",
-    backgroundVideo: chp3IntroVideo,
+    backgroundVideo: ANNA_BG_VIDEO,
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Now Anna clicks the resolve button. The supply risk and inventory analysis agents have already calculated the revenue at risk and the current stock across DCs and stores.",
