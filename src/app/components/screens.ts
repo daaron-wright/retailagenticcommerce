@@ -208,7 +208,7 @@ export const screens: Screen[] = [
     backgroundVideo: chp1IntroVideo,
     personaImage: ELENA_IMG,
     personaSmall: true,
-    body: "Elena looks at her list and is notified that home delivery is not likely, due to the weather. The alternative is pick-up in-store between the hours of 8 pm & 10 am the following day, which she selects.",
+    body: "Elena looks at her list and is notified that home delivery is not likely, due to the weather. The alternative is pick-up in-store between the hours of 8 am & 10 pm the following day, which she selects.",
     appUIType: "pickup-select",
   },
   {
@@ -505,7 +505,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     personaImage: ELENA_IMG,
     personaSmall: true,
     voiceCommand: "Order confirmed!",
-    body: "The Harvest House app confirms and thanks Elena for her purchase and confirms her order will be ready for in-store pick-up between 8PM-10 AM (the following day).",
+    body: "The Harvest House app confirms and thanks Elena for her purchase and confirms her order will be ready for in-store pick-up between 8AM-10 PM (the following day).",
     appUIType: "thank-you",
   },
 

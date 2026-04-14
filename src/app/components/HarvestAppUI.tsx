@@ -302,7 +302,7 @@ function PickupUI({ onAction }: { onAction?: () => void }) {
       <Card className="p-5 w-full text-center space-y-3">
         <div className="flex justify-center"><AlertTriangle className="w-6 h-6 text-gray-600" /></div>
         <p className="text-[#ff462d] text-[12px] leading-[18px]" style={{ fontFamily: F, fontWeight: 700 }}>
-          Due to the winter storm,<br />home delivery is unavailable.<br />You may pick your order up<br />in-store between 8pm - 10am.
+          Due to the winter storm,<br />home delivery is unavailable.<br />You may pick your order up<br />in-store between 8am - 10pm.
         </p>
         <p className="text-gray-500 text-[9px]" style={{ fontFamily: F }}>Would you like to reschedule your flu shot and delivery now?</p>
         <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} variant="danger" />
@@ -451,7 +451,7 @@ function ThankYouUI() {
           This is the confirmation<br />
           for your in-store pick-up.<br />
           Your order will be available<br />
-          between 8pm - 10am<br />
+          between 8am - 10pm<br />
           (the following day)
         </p>
         <p className="text-black text-[13px] leading-[20px] text-center mt-4" style={{ fontFamily: F }}>
