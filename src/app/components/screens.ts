@@ -312,19 +312,6 @@ The VP of SCM leads a team meeting, reviewing the dashboard situation with other
     },
   },
 
-  // === CHAPTER 3 CARD ===
-  {
-    id: "ch3-card",
-    chapter: 3,
-    type: "chapterCard",
-    background: "red",
-    backgroundVideo: JOHNATHAN_BG_VIDEO,
-    title: "Chapter 3",
-    body: `Personas: Director of Demand Planning / SCM Manager / Consumer
-
-Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2019s Agentic Commerce can predict, solve and meet the demands illustrated in the holistic simulation.`,
-  },
-
   // === CHAPTER 3 INTRO ===
   {
     id: "ch3-intro",
