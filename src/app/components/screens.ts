@@ -69,7 +69,6 @@ export const screens: Screen[] = [
     chapter: 1,
     type: "opening",
     background: "storm",
-    backgroundVideo: chp1IntroVideo,
     title: "PROTOTYPE",
     subtitle: "Agentic Commerce",
     body: "Establish threat, tone, and urgency before personas appear",
