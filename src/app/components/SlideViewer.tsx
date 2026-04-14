@@ -457,7 +457,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               muted
               playsInline
               onCanPlay={() => setVideoReady(true)}
-              className={`absolute inset-0 w-full h-full ${bgVideo?.includes("Screen_Recording") || bgVideo?.includes("chicago_trips") ? "object-contain" : "object-cover"} transition-opacity duration-500 ${videoReady ? "opacity-100" : "opacity-0"} ${screen.chapter === 2 ? "saturate-50 contrast-75" : ""}`}
+              className={`absolute inset-0 w-full h-full ${bgVideo?.includes("Screen_Recording") ? "object-contain" : "object-cover"} transition-opacity duration-500 ${videoReady ? "opacity-100" : "opacity-0"} ${screen.chapter === 2 ? "saturate-50 contrast-75" : ""}`}
             >
               <source src={bgVideo} />
             </video>
