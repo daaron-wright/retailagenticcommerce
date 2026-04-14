@@ -252,29 +252,6 @@ export const screens: Screen[] = [
     disruptionImages: [QUEUE, EMPTY_SHELVES, WAREHOUSE],
   },
 
-  // === CHAPTER 2 CARD ===
-  {
-    id: "ch2-card",
-    chapter: 2,
-    type: "chapterCard",
-    background: "red",
-    title: "Chapter 2",
-    body: `Persona: Vice President of Supply Chain Management \u2013 Harvest House
-
-The VP of SCM leads a team meeting, reviewing the dashboard situation with other key personas impacted by a weather emergency\u2014such as the Director of e-commerce, Director of Retail Operations, and Director of In-store Inventory Management.`,
-  },
-
-  // === CHAPTER 2 INTRO ===
-  {
-    id: "ch2-intro",
-    chapter: 2,
-    type: "chapterIntro",
-    background: "dark",
-    backgroundVideo: MEETING_VIDEO,
-    title: "Chapter 2",
-    subtitle: "Supply Chain Response",
-  },
-
   // === CHAPTER 2 SCREENS ===
   {
     id: "ch2-s1",
