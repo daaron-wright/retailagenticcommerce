@@ -531,7 +531,13 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               )}
 
               {/* === OPENING === */}
-              {/* Opening slide — no overlay text */}
+              {screen.type === "opening" && (
+                <div className="absolute left-[47px] bottom-[140px]">
+                  <p className="text-white text-[48px] leading-[1.1]" style={{ fontFamily: F, fontWeight: 300 }}>
+                    Agentic Orchestration Center
+                  </p>
+                </div>
+              )}
 
               {/* === CHAPTER CARD (Red) === */}
               {screen.type === "chapterCard" && (
