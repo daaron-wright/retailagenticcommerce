@@ -727,14 +727,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                   {screen.iframeUrl ? (
                     <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580, height: 620 }}>
                       {screen.id === "ch2-s3" ? (
-                        <>
-                          <ControlTowerDashboard />
-                          <div className="px-4 py-3 border-t border-white/10 bg-white/[0.02]">
-                            <p className="text-white/70 text-[11px] leading-[16px]" style={{ fontFamily: F }}>
-                              {screen.body}
-                            </p>
-                          </div>
-                        </>
+                        <ControlTowerDashboard />
                       ) : (
                         <>
                           <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
