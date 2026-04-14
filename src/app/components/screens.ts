@@ -272,7 +272,7 @@ export const screens: Screen[] = [
     backgroundVideo: MEETING_VIDEO,
     personaImage: SCOTT_IMG,
     personaSmall: true,
-    body: "The VP of SCM leads a team meeting, reviewing the dashboard situation with other key personas impacted by a weather emergency\u2014such as the Director of e-commerce, Director of Retail Operations, and Director of In-store Inventory Management. Challenges emerge rapidly and require swift action.",
+    body: "Scott reviews the weather emergency with other company leads, such as the Director of e-commerce, Director of Retail Operations, and Director of In-store Inventory Management. Challenges emerge rapidly and require swift action.",
   },
   {
     id: "ch2-s3",
