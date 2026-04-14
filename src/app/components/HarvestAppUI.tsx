@@ -1,6 +1,6 @@
 // Harvest House phone screens for Chapter 1 — white bg, spruce primary
 import React, { useState } from "react";
-import hhLogo from "../../imports/image-8.png";
+const hhLogo = "https://cdn.builder.io/api/v1/image/assets%2F4f55495a54b1427b9bd40ba1c8f3c8aa%2F831b365cc9f34f0bb4bf8c624416f298?format=webp&width=800&height=1200";
 import {
   CalendarDays, Truck, AlertTriangle, CheckCircle, Pill, Store,
   PiggyBank, Lightbulb, DollarSign, Syringe, Package, ShoppingCart,
@@ -14,7 +14,7 @@ const F = "'Open Sans', sans-serif";
 function HHLogo({ size = 36 }: { size?: number }) {
   return (
     <div className="rounded-full flex items-center justify-center" style={{ width: size, height: size, background: SPRUCE }}>
-      <img src={hhLogo} alt="H" className="w-[65%] h-[65%] object-contain brightness-0 invert" />
+      <img src={hhLogo} alt="H" className="w-[65%] h-[65%] object-contain" />
     </div>
   );
 }
