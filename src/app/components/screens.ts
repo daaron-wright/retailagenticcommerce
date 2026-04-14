@@ -344,7 +344,9 @@ The VP of SCM leads a team meeting, reviewing the dashboard situation with other
     personaSmall: true,
     body: "Dashboard displays business indicators at critical lows, failing to meet overwhelming demand due to delayed \u201creactive decision-making.\u201d",
     iframeUrl: "https://unifiedaicontroltowerforretail.replit.app",
-    overlayIframeUrl: "https://lg-kyn-unified-cdp.lemonriver-6b4673f8.centralindia.azurecontainerapps.io",
+    overlayCard: {
+      text: "The Unified Control Tower aggregates real-time signals across inventory, logistics, and demand channels — surfacing critical disruptions and enabling rapid, coordinated decision-making across the supply chain.",
+    },
   },
 
   // === CHAPTER 3 CARD ===
