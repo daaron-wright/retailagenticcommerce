@@ -45,7 +45,7 @@ export interface Screen {
 
 const STORM_IMG = "https://images.unsplash.com/photo-1774703299597-05e0e19de41f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwc3Rvcm0lMjBjbG91ZHMlMjBsaWdodG5pbmclMjBjaXR5JTIwc2t5bGluZSUyMGRyYW1hdGljfGVufDF8fHx8MTc3NTY2OTA4N3ww&ixlib=rb-4.1.0&q=80&w=1080";
 const TRANQUIL_HOME_IMG = "https://images.unsplash.com/photo-1771680968896-cfd9b8f7244e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmFucXVpbCUyMGhvbWUlMjBtb2Rlcm4lMjBleHRlcmlvcnxlbnwxfHx8fDE3NzU2ODIzMTl8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const ELENA_IMG = "https://images.unsplash.com/photo-1758600435036-0c958b8b9704?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwbmV1dHJhbCUyMGdyYXklMjBiYWNrZ3JvdW5kJTIwaGVhZHNob3QlMjBuYXR1cmFsfGVufDF8fHx8MTc3NjEwMzcwOXww&ixlib=rb-4.1.0&q=80&w=1080";
+const ELENA_IMG = "https://cdn.builder.io/api/v1/image/assets%2F4f55495a54b1427b9bd40ba1c8f3c8aa%2F2f78e35ce5fb40ebbb6fce370e88ef53?format=webp&width=800&height=1200";
 const ELENA_PHONE = "https://images.unsplash.com/photo-1765817444955-fcd53dcdfd4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHVzaW5nJTIwc21hcnRwaG9uZSUyMGhvbWUlMjBjb3p5JTIwd2ludGVyfGVufDF8fHx8MTc3NTY2OTA4OHww&ixlib=rb-4.1.0&q=80&w=1080";
 const SCOTT_IMG = scottImgFile;
 const WAR_ROOM_IMG = "https://images.unsplash.com/photo-1769740333462-9a63bfa914bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBtZWV0aW5nJTIwdGVhbXxlbnwxfHx8fDE3NzYxMDY3Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080";
