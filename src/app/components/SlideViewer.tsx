@@ -557,7 +557,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               {screen.type === "chapterIntro" && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div>
-                    <p className="text-white/60 text-[14px] tracking-[3px] uppercase mb-3" style={{ fontFamily: F, letterSpacing: "3px" }}>{screen.title}</p>
+                    {screen.title && <p className="text-white/60 text-[14px] tracking-[3px] uppercase mb-3" style={{ fontFamily: F, letterSpacing: "3px" }}>{screen.title}</p>}
                     <p className="text-white text-[48px] leading-[1.1]" style={{ fontFamily: F, fontWeight: 300 }}>{screen.subtitle}</p>
                   </div>
                 </div>

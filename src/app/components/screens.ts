@@ -296,8 +296,7 @@ export const screens: Screen[] = [
     type: "chapterIntro",
     background: "dark",
     backgroundVideo: JOHNATHAN_BG_VIDEO,
-    title: "Chapter 3",
-    subtitle: "Agentic Resolution",
+    subtitle: "Agentic Orchestration Center",
   },
 
   // === CHAPTER 3: Johnathan ===
