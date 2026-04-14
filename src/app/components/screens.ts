@@ -342,7 +342,7 @@ The VP of SCM leads a team meeting, reviewing the dashboard situation with other
     backgroundVideo: JOHNATHAN_BG_VIDEO,
     personaImage: JOHNATHAN_IMG,
     personaSmall: true,
-    body: "Introduction of Director of Demand Planning, outlining their role and mapping to previous persona setups. The Demand Planner approves inventory purchases recommended by Agentic AI e-commerce tools and agents analyzing inventory and forecast needs based on data sources.",
+    body: "The Demand Planner approves inventory purchases recommended by Agentic AI e-commerce tools and agents analyzing inventory and forecast needs based on data sources.",
     overlayCard: {
       text: "The Demand Planning Agent uses real-time data from weather APIs, historical sales patterns, and current inventory levels to generate predictive demand forecasts for critical SKUs.",
     },
