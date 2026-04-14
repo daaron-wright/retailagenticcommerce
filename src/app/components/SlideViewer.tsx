@@ -610,7 +610,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                   {screen.appUIType && (
                     <div className="absolute right-[calc(12.5%+28px)] top-1/2 -translate-y-1/2">
                       {(screen.chapter === 1 || screen.id === "ch3-s11") ? (
-                        <div className="scale-[0.95] origin-right">
+                        <div className="scale-[0.95] origin-right cursor-pointer" onClick={advance}>
                           <PhoneMockup>
                             <div className="w-full h-full relative">
                               <HarvestAppUI type={screen.appUIType} onAction={advance} />
