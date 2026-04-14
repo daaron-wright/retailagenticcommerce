@@ -74,42 +74,6 @@ export const screens: Screen[] = [
     body: "Establish threat, tone, and urgency before personas appear",
   },
 
-  // === CHAPTER 1 CARD ===
-  {
-    id: "ch1-card",
-    chapter: 1,
-    type: "chapterCard",
-    background: "red",
-    title: "Chapter 1",
-    body: `Core Technology
-
-Modernizing Legacy Systems to provide personalized services based on data that is coming through multiple channels
-
-\u00b7 Cloud Services
-\u00b7 Mobility (devices, services, and connectivity)
-
-Technology Accelerators
-
-\u00b7 DWS
-\u00b7 GenAI
-\u00b7 AR/VR
-\u00b7 Predictive analytics based on real-time aircraft-based datasets
-\u00b7 Real-time Omni-channel and IoT based data
-\u00b7 Security`,
-  },
-
-  // === CHAPTER 1 INTRO ===
-  {
-    id: "ch1-intro",
-    chapter: 1,
-    type: "chapterIntro",
-    background: "dark",
-    backgroundImage: TRANQUIL_HOME_IMG,
-    backgroundVideo: chp1IntroVideo,
-    title: "Chapter 1",
-    subtitle: "Agentic Commerce",
-  },
-
   // === CHAPTER 1 SCREENS ===
   {
     id: "ch1-s1",
