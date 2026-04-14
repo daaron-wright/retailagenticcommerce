@@ -597,7 +597,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <RedTooltip onClick={handleTooltipToggle} active={tooltipOpen} />
                       </div>
                       <div
-                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[575px]" : "left-[86px] top-[524px]"}`}
+                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[600px]" : "left-[86px] top-[524px]"}`}
                         style={{
                           opacity: showExplainer ? 1 : 0,
                           transform: showExplainer ? "scaleY(1)" : "scaleY(0)",
@@ -706,7 +706,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <RedTooltip onClick={handleTooltipToggle} active={tooltipOpen} />
                       </div>
                       <div
-                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[575px]" : "left-[86px] top-[524px]"}`}
+                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[600px]" : "left-[86px] top-[524px]"}`}
                         style={{
                           opacity: showExplainer ? 1 : 0,
                           transform: showExplainer ? "scaleY(1)" : "scaleY(0)",
