@@ -342,7 +342,7 @@ The VP of SCM leads a team meeting, reviewing the dashboard situation with other
     backgroundVideo: MEETING_VIDEO,
     personaImage: SCOTT_IMG,
     personaSmall: true,
-    body: "Dashboard displays business indicators at critical lows, failing to meet overwhelming demand due to delayed \u201creactive decision-making\u201d\u2014Before state, demonstrating conditions without Kyndryl Agentic.",
+    body: "Dashboard displays business indicators at critical lows, failing to meet overwhelming demand due to delayed \u201creactive decision-making.\u201d",
     iframeUrl: "https://unifiedaicontroltowerforretail.replit.app",
     overlayIframeUrl: "https://lg-kyn-unified-cdp.lemonriver-6b4673f8.centralindia.azurecontainerapps.io",
   },
