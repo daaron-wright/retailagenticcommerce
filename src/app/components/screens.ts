@@ -4,6 +4,7 @@ import chapter1Video from "../../imports/AdobeStock_1909972656_Video_4K_Preview.
 import chapter3Video from "../../imports/Adobe_Express_-_AdobeStock_1681926270_Video_HD_Preview.mp4";
 import annaScreenRecording from "../../imports/Screen_Recording_2026-04-09_at_12.57.31 PM.mp4";
 import scene13Video from "../../imports/Scene 13.mp4";
+import chp3IntroVideo from "../../imports/chp 3 intro_1.mp4";
 import scottImgFile from "../../imports/image-5.png";
 import johnathanImgFile from "../../imports/image-6.png";
 import annaImgFile from "../../imports/image-7.png";
@@ -418,7 +419,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "narrative",
     background: "scene",
-    backgroundVideo: JOHNATHAN_BG_VIDEO,
+    backgroundVideo: chp3IntroVideo,
     personaImage: JOHNATHAN_IMG,
     personaSmall: true,
     voiceCommand: "Approve order",
@@ -432,7 +433,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "persona",
     background: "scene",
-    backgroundVideo: ANNA_BG_VIDEO,
+    backgroundVideo: chp3IntroVideo,
     personaImage: ANNA_IMG,
     personaName: "Anna",
     body: "Meet SCM Manager Anna.",
@@ -442,7 +443,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "narrative",
     background: "scene",
-    backgroundVideo: ANNA_BG_VIDEO,
+    backgroundVideo: chp3IntroVideo,
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Anna is the Manager of Harvest\u2019s House Supply Chain. She is tasked with overseeing the flow of products from suppliers to stores or fulfillment centers.",
@@ -452,7 +453,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "notification",
     background: "scene",
-    backgroundVideo: ANNA_BG_VIDEO,
+    backgroundVideo: chp3IntroVideo,
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Anna receives a notification from her SCM dashboard. The notification is an alert mechanism coming from the Supply Chain Agent to approve immediate re-order of critical SKUs from relevant suppliers.",
@@ -468,7 +469,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "dashboard",
     background: "scene",
-    backgroundVideo: ANNA_BG_VIDEO,
+    backgroundVideo: chp3IntroVideo,
     personaImage: ANNA_IMG,
     personaSmall: true,
     voiceCommand: "View incident details",
@@ -488,7 +489,7 @@ Product demos are focus & showcase in Chapter Three demonstrating how Kyndryl\u2
     chapter: 3,
     type: "dashboard",
     background: "scene",
-    backgroundVideo: ANNA_BG_VIDEO,
+    backgroundVideo: chp3IntroVideo,
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Now Anna clicks the resolve button. The supply risk and inventory analysis agents have already calculated the revenue at risk and the current stock across DCs and stores.",
