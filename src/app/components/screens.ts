@@ -290,7 +290,7 @@ export const screens: Screen[] = [
     backgroundVideo: JOHNATHAN_BG_VIDEO,
     personaImage: JOHNATHAN_IMG,
     personaSmall: true,
-    body: "The Demand Planner approves inventory purchases recommended by Agentic AI e-commerce tools and agents analyzing inventory and forecast needs based on data sources.",
+    body: "The demand planner approves inventory purchases recommended by the Agentic Orchestration Center, which analyzes inventory and forecast needs proactively based on integrated legacy systems, modern platforms, and third-party applications and data sources.",
     overlayCard: {
       text: "The Demand Planning Agent uses real-time data from weather APIs, historical sales patterns, and current inventory levels to generate predictive demand forecasts for critical SKUs.",
     },
