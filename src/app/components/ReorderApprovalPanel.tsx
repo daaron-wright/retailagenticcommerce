@@ -70,7 +70,7 @@ const skuData = [
 ];
 
 const auditTimeline = [
-  { time: "06:15", agent: "Supplier Risk Monitoring Agent", color: "#dc2626", text: "Severe weather event detected: primary regional supplier affected by incoming storm. 2 backup suppliers flagged due to supply chain delays and rising fuel prices. 3 suppliers suspended." },
+  { time: "06:15", agent: "Supplier Risk Monitoring Agent", color: "#dc2626", text: "Severe weather event detected; primary regional supplier affected by incoming storm. 2 backup suppliers flagged due to tariffs and rising oil prices. 3 suppliers suspended." },
   { time: "06:18", agent: "Inventory Analysis Agent", color: "#dc2626", text: "3 critical SKUs at Southeast DC identified below threshold: SKU-5590 at 1.9 days cover, SKU-4482 at 2.1 days, SKU-3371 at 2.0 days. Avg supplier fulfilment: 12 days. Stock-out risk confirmed." },
   { time: "06:19", agent: "Inventory Analysis Agent", color: "#dc2626", text: "Emergency reorder quantities calculated to restore 20-day cover: SKU-5590: 5,000 cases (Danone North America), SKU-4482: 6,000 cases (Purina Direct), SKU-3371: 8,000 cases (Newell Brands). Projected revenue loss if unapproved: $576k." },
   { time: "06:20", agent: "Alert Dispatch Agent", color: "#dc2626", text: "SKU Understock Alert dispatched to Supply Chain Manager dashboard. Ordering window closes 2:00 PM." },
@@ -144,7 +144,7 @@ export function ReorderApprovalPanel({ onNext }: ReorderApprovalPanelProps) {
                 <li className="reorder-overview-item">
                   <span className="reorder-bullet" />
                   <p className="reorder-overview-text">
-                    Your primary <strong>regional supplier</strong> is affected by the incoming severe weather event. Two key <strong>backup suppliers</strong> are disrupted due to supply chain delays and rising fuel prices.
+                    Your primary <strong>regional supplier</strong> is affected by the incoming severe weather event. Two key <strong>backup suppliers</strong> are disrupted due to tariffs and rising oil prices.
                   </p>
                 </li>
                 <li className="reorder-overview-item">

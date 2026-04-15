@@ -11,7 +11,7 @@ const skuItems = [
     name: "Yankee Candle: Large Jar Candles",
     sku: "SKU-3371",
     location: "Southeast DC",
-    cover: "1.8 days cover remaining",
+    cover: "2 days cover remaining",
     priority: "high" as const,
   },
   {
@@ -66,7 +66,7 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
         {view === "notification" ? (
           <div className="px-5 py-5">
             <p className="text-[#333] text-[13px] leading-[21px]" style={{ fontFamily: F }}>
-              3 critical SKUs at Southeast DC are understocked due to severe weather disruptions at key suppliers, combined with fuel price spikes.
+              1 Chilled SKU at Southeast DC is understocked due to severe weather disruptions at key suppliers, combined with fuel price spikes.
             </p>
 
             <div className="sku-alert-impact-highlight mt-4 rounded-lg px-4 py-3">
@@ -109,13 +109,13 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    3 critical suppliers are disrupted because of the incoming severe weather event.
+                    3 critical suppliers are disrupted because of the incoming severe weather and rising fuel prices.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    3 SKUs coming from those suppliers have been affected, are running low and are nearing expected reordering window.
+                    3 perishable SKUs coming from those 3 suppliers have been affected, are running low and are nearing expected reordering window.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
