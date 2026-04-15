@@ -444,16 +444,6 @@ export const screens: Screen[] = [
     appUIType: "thank-you",
   },
 
-  // === CLOSING ===
-  {
-    id: "closing",
-    chapter: 3,
-    type: "closing",
-    background: "red",
-    title: "Why Kyndryl?",
-    subtitle: "Modernize for today. Innovate for tomorrow. Secure everywhere.",
-  },
-
   // === FINAL LOGO SLIDE ===
   {
     id: "closing-logo",
