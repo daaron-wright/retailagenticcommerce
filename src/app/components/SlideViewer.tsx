@@ -917,7 +917,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
           </button>
           {isLast ? (
             <a
-              href="https://unifiedaicontroltowerforretail.replit.app"
+              href="https://ai-orchestration-center-weather.replit.app"
               target="_blank"
               rel="noreferrer"
               className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all hover:bg-white/20"

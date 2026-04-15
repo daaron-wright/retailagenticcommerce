@@ -256,7 +256,7 @@ export const screens: Screen[] = [
     personaImage: SCOTT_IMG,
     personaSmall: true,
     body: "Dashboard displays business indicators at critical lows, failing to meet overwhelming demand due to delayed \u201creactive decision-making.\u201d",
-    iframeUrl: "https://unifiedaicontroltowerforretail.replit.app",
+    iframeUrl: "https://ai-orchestration-center-weather.replit.app",
     overlayCard: {
       text: "The dashboard aggregates reactive signals across inventory, logistics, and demand channels, showcasing critical disruptions in a siloed fashion.",
     },
