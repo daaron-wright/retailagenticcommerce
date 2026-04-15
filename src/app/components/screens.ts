@@ -303,7 +303,7 @@ export const screens: Screen[] = [
     backgroundVideo: JOHNATHAN_BG_VIDEO,
     personaImage: JOHNATHAN_IMG,
     personaSmall: true,
-    body: "Johnathan is reviewing a dashboard forecasting the inventory demands powered by the planning agent. The agentic solution is providing real-time stock levels needed to meet the current demand variance of necessity products from both online and in-store channels.",
+    body: "Jonathan is reviewing the proactive insights provided to him by the planning agent.\nThe Agentic solution is providing real-time stock levels needed to meet the current demand variance of necessity products from both online and in-store channels.",
     dashboardData: {
       title: "Local Weather Event",
       type: "planning",
