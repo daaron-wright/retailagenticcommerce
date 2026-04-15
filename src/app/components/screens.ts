@@ -153,7 +153,7 @@ export const screens: Screen[] = [
     backgroundVideo: chp1IntroVideo,
     personaImage: ELENA_IMG,
     personaSmall: true,
-    body: "Elena proceeds to add the necessity items she and her family have identified into her online application shopping cart. Items can include: batteries, water, dog food, and pre-cooked meals as per her list of necessities.",
+    body: "Elena proceeds to add the items she and her family have identified into her online cart. Items include batteries, water, dog food, and pre-cooked meals.",
     appUIType: "shopping-cart",
   },
   {
