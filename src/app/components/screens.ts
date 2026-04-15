@@ -131,7 +131,7 @@ export const screens: Screen[] = [
     personaImage: ELENA_IMG,
     personaSmall: true,
     voiceCommand: "Reschedule due to storm?",
-    body: "Due to the storm, the application asks if she\u2019d like to delay and re-schedule the flu shot & paper towel delivery to next week due to the storm.",
+    body: "Due to the storm, the application asks if she\u2019d like to delay and re-schedule the flu shot & paper towel delivery to next week.",
     appUIType: "reschedule-storm",
   },
   {
