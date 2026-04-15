@@ -257,7 +257,7 @@ export const screens: Screen[] = [
     body: "Dashboard displays business indicators at critical lows, failing to meet overwhelming demand due to delayed \u201creactive decision-making.\u201d",
     iframeUrl: "https://unifiedaicontroltowerforretail.replit.app",
     overlayCard: {
-      text: "The Unified Control Tower aggregates real-time signals across inventory, logistics, and demand channels — surfacing critical disruptions and enabling rapid, coordinated decision-making across the supply chain.",
+      text: "The dashboard aggregates reactive signals across inventory, logistics, and demand channels, showcasing critical disruptions in a siloed fashion.",
     },
   },
 
