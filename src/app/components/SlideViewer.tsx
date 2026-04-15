@@ -411,18 +411,14 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
   const advance = useCallback(() => {
     if (localIndex < chapterScreens.length - 1) {
       setLocalIndex(localIndex + 1);
-    } else if (routeConfig.nextRoute) {
-      navigate(routeConfig.nextRoute);
     }
-  }, [localIndex, chapterScreens.length, routeConfig.nextRoute, navigate]);
+  }, [localIndex, chapterScreens.length]);
 
   const goBack = useCallback(() => {
     if (localIndex > 0) {
       setLocalIndex(localIndex - 1);
-    } else if (routeConfig.prevRoute) {
-      navigate(routeConfig.prevRoute);
     }
-  }, [localIndex, routeConfig.prevRoute, navigate]);
+  }, [localIndex]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -438,8 +434,8 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
   const globalIndex = screens.indexOf(screen);
   const isRedBg = screen.background === "red";
   const isSceneBg = screen.background === "scene" || screen.background === "dark" || screen.background === "storm";
-  const isFirst = localIndex === 0 && !routeConfig.prevRoute;
-  const isLast = localIndex === chapterScreens.length - 1 && !routeConfig.nextRoute;
+  const isFirst = localIndex === 0;
+  const isLast = localIndex === chapterScreens.length - 1;
 
   // Determine if explainer card should show based on tooltip state
   const hasOverlayCard = !!screen.overlayCard;
