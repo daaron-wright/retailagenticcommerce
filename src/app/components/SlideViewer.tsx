@@ -229,9 +229,9 @@ function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
 
   if (type === "approve-order") {
     const orders = [
-      { name: "Candles (Emergency)", detail: "1,200 units", status: "critical" },
-      { name: "Food (Perishable)", detail: "850 units", status: "critical" },
-      { name: "Pet Food", detail: "420 units", status: "warning" },
+      { name: "Yankee Candle: Large Jar", detail: "8,000 cases", status: "critical" },
+      { name: "Fancy Feast Wet Cat Food", detail: "6,000 cases", status: "critical" },
+      { name: "Dannon Greek Yogurt", detail: "5,000 cases", status: "warning" },
     ];
     const toggleOrder = (idx: number, e: React.MouseEvent) => {
       e.stopPropagation();
