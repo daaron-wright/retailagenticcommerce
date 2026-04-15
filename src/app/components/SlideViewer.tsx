@@ -403,22 +403,49 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
     setTooltipOpen(false);
   }, [localIndex, chapterPath]);
 
-  // Reset index when chapter changes
+  // Reset index when chapter changes (check for stored index from back-navigation)
   useEffect(() => {
-    setLocalIndex(0);
+    const stored = sessionStorage.getItem("slideIndex");
+    if (stored) {
+      setLocalIndex(Number(stored));
+      sessionStorage.removeItem("slideIndex");
+    } else {
+      setLocalIndex(0);
+    }
   }, [chapterPath]);
 
   const advance = useCallback(() => {
     if (localIndex < chapterScreens.length - 1) {
       setLocalIndex(localIndex + 1);
+    } else {
+      // Move to the first slide of the next chapter
+      const globalIdx = screens.indexOf(chapterScreens[localIndex]);
+      if (globalIdx < screens.length - 1) {
+        const nextScreen = screens[globalIdx + 1];
+        const nextRoute = chapterRoutes.find((r) => r.chapterFilter(nextScreen, globalIdx + 1));
+        if (nextRoute) navigate("/" + nextRoute.path);
+      }
     }
-  }, [localIndex, chapterScreens.length]);
+  }, [localIndex, chapterScreens, navigate]);
 
   const goBack = useCallback(() => {
     if (localIndex > 0) {
       setLocalIndex(localIndex - 1);
+    } else {
+      // Move to the last slide of the previous chapter
+      const globalIdx = screens.indexOf(chapterScreens[0]);
+      if (globalIdx > 0) {
+        const prevScreen = screens[globalIdx - 1];
+        const prevRoute = chapterRoutes.find((r) => r.chapterFilter(prevScreen, globalIdx - 1));
+        if (prevRoute) {
+          const prevChapterScreens = screens.filter((s, i) => prevRoute.chapterFilter(s, i));
+          // Navigate and set index to last slide — use sessionStorage to pass the index
+          sessionStorage.setItem("slideIndex", String(prevChapterScreens.length - 1));
+          navigate("/" + prevRoute.path);
+        }
+      }
     }
-  }, [localIndex]);
+  }, [localIndex, chapterScreens, navigate]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -434,8 +461,8 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
   const globalIndex = screens.indexOf(screen);
   const isRedBg = screen.background === "red";
   const isSceneBg = screen.background === "scene" || screen.background === "dark" || screen.background === "storm";
-  const isFirst = localIndex === 0;
-  const isLast = localIndex === chapterScreens.length - 1;
+  const isFirst = globalIndex === 0;
+  const isLast = globalIndex === screens.length - 1;
 
   // Determine if explainer card should show based on tooltip state
   const hasOverlayCard = !!screen.overlayCard;
