@@ -1,14 +1,4 @@
 import { useState } from "react";
-import { ShoppingCart, AlertTriangle, Pill, Truck, CheckCircle, Bell } from "lucide-react";
-
-const iconMap: Record<string, React.ReactNode> = {
-  store: <ShoppingCart className="w-5 h-5 text-white" />,
-  alert: <AlertTriangle className="w-5 h-5 text-white" />,
-  pharmacy: <Pill className="w-5 h-5 text-white" />,
-  delivery: <Truck className="w-5 h-5 text-white" />,
-  success: <CheckCircle className="w-5 h-5 text-white" />,
-  default: <Bell className="w-5 h-5 text-white" />,
-};
 
 interface Props {
   icon?: string;
@@ -18,7 +8,7 @@ interface Props {
   onAction?: () => void;
 }
 
-export function NotificationCard({ icon = "default", title, message, action, onAction }: Props) {
+export function NotificationCard({ title, message, action, onAction }: Props) {
   const [clicked, setClicked] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
@@ -43,38 +33,55 @@ export function NotificationCard({ icon = "default", title, message, action, onA
         transform: dismissed ? "translateX(40px)" : "translateX(0)",
       }}
     >
-      <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-5 max-w-[500px] border border-white/10 transition-all duration-300 ${clicked ? "ring-2 ring-green-400/50" : ""}`}>
-        {/* Dismiss */}
-        <div className="flex justify-end mb-1">
+      <div className="rounded-2xl overflow-hidden max-w-[460px] shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
+        {/* Red header */}
+        <div className="bg-[#dc2626] px-5 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            <p
+              className="text-white text-[13px] font-semibold"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+            >
+              {title}
+            </p>
+          </div>
           <button
             onClick={handleDismiss}
-            className="text-[10px] text-white/40 hover:text-white/60 transition-colors cursor-pointer"
-            style={{ fontFamily: "'Open Sans', sans-serif" }}
+            className="text-white/70 hover:text-white transition-colors cursor-pointer text-[16px] leading-none"
           >
-            Dismiss ✕
+            ✕
           </button>
         </div>
-        <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-b from-[#5b6dde] to-[#273489] flex items-center justify-center shrink-0">
-            <div className="text-white">{iconMap[icon] || iconMap.default}</div>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-white text-[14px] font-semibold" style={{ fontFamily: "'Open Sans', sans-serif" }}>{title}</p>
-            <p className="text-white/70 text-[14px] mt-1 leading-[19px]" style={{ fontFamily: "'Open Sans', sans-serif" }}>{message}</p>
-          </div>
-          <button
-            onClick={handleAction}
-            className="shrink-0 text-white text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer"
-            style={{
-              fontFamily: "'Open Sans', sans-serif",
-              background: clicked
-                ? "linear-gradient(to bottom, #22c55e, #16a34a)"
-                : "linear-gradient(to bottom, #5b6dde, #273489)",
-              transform: clicked ? "scale(0.95)" : "scale(1)",
-            }}
+
+        {/* White body */}
+        <div className="bg-white px-5 py-4">
+          <p
+            className="text-[#333] text-[13px] leading-[20px]"
+            style={{ fontFamily: "'Open Sans', sans-serif" }}
           >
-            {clicked ? "✓ Done" : action}
-          </button>
+            {message}
+          </p>
+
+          <div className="flex items-center gap-3 mt-4">
+            <button
+              onClick={handleAction}
+              className="text-white text-[13px] font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 cursor-pointer"
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                background: clicked ? "#16a34a" : "#dc2626",
+                transform: clicked ? "scale(0.97)" : "scale(1)",
+              }}
+            >
+              {clicked ? "✓ Done" : action}
+            </button>
+            <button
+              onClick={handleDismiss}
+              className="text-[#666] text-[13px] font-medium px-5 py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors cursor-pointer"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+            >
+              Dismiss
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -119,6 +119,71 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* SKU Alert Panel */
+.sku-alert-header {
+  background: #dc2626;
+}
+
+.sku-alert-impact-highlight {
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+}
+
+.sku-alert-resolve-btn {
+  background: #dc2626;
+}
+
+.sku-alert-resolve-btn:hover {
+  background: #b91c1c;
+}
+
+.sku-alert-resolve-btn-full:hover {
+  opacity: 0.9;
+}
+
+.sku-alert-overview-box {
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.sku-alert-overview-dashes {
+  flex: 1;
+  height: 0;
+  border-top: 2px dashed #e5e7eb;
+  margin: 0 12px;
+}
+
+.sku-alert-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d97706;
+  flex-shrink: 0;
+}
+
+.sku-alert-bullet-red {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #dc2626;
+  flex-shrink: 0;
+}
+
+.sku-alert-sku-card {
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+.sku-alert-badge-critical {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.sku-alert-badge-high {
+  background: #fef3c7;
+  color: #b45309;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

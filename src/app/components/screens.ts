@@ -42,6 +42,7 @@ export interface Screen {
   iframeZoom?: number;
   overlayIframeUrl?: string;
   demoLink?: string;
+  customPanel?: string;
 }
 
 const STORM_IMG = "https://images.unsplash.com/photo-1774703299597-05e0e19de41f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwc3Rvcm0lMjBjbG91ZHMlMjBsaWdodG5pbmclMjBjaXR5JTIwc2t5bGluZSUyMGRyYW1hdGljfGVufDF8fHx8MTc3NTY2OTA4N3ww&ixlib=rb-4.1.0&q=80&w=1080";
@@ -394,10 +395,7 @@ export const screens: Screen[] = [
     personaImage: ANNA_IMG,
     personaSmall: true,
     body: "Now Anna clicks the resolve button. The supply risk and inventory analysis agents have already calculated the revenue at risk and the current stock across DCs and stores.",
-    iframeUrl: "https://unifiedaicontroltowerforretail.replit.app/dashboard/supply-chain",
-    iframeTitle: "Agentic Orchestration Center",
-    iframeZoom: 1.5,
-    demoLink: "https://lg-kyn-unified-cdp.lemonriver-6b4673f8.centralindia.azurecontainerapps.io",
+    customPanel: "sku-alert",
     overlayCard: {
       text: "The Supply Risk Agent and Inventory Analysis Agent work in tandem, calculating revenue exposure and mapping current stock levels across distribution centers and retail locations in real time.",
     },
