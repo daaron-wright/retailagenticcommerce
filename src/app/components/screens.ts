@@ -215,12 +215,6 @@ export const screens: Screen[] = [
 
   // === CHAPTER 1 CLOSE ===
   {
-    id: "ch1-close-transition",
-    chapter: 1,
-    type: "transition",
-    background: "red",
-  },
-  {
     id: "ch1-close",
     chapter: 1,
     type: "disruption",
