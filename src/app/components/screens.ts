@@ -164,7 +164,7 @@ export const screens: Screen[] = [
     backgroundVideo: chp1IntroVideo,
     personaImage: ELENA_IMG,
     personaSmall: true,
-    body: "Elena also needs to renew a prescription for her son\u2019s insulin, which she adds to her online shopping cart using the Harvest House pharmacy applications and clicks refill for pick-up tomorrow.",
+    body: "Elena also needs to renew a prescription for her son\u2019s insulin, which she adds to her online shopping cart. She clicks refill for pickup tomorrow.",
     appUIType: "insulin",
   },
   {
