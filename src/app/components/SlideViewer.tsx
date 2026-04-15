@@ -888,20 +888,36 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               <path d="M8 2L4 6L8 10" stroke={isFirst ? 'rgba(255,255,255,0.2)' : 'white'} strokeWidth="1.5" />
             </svg>
           </button>
-          <button
-            onClick={advance}
-            disabled={isLast}
-            className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all"
-            style={{
-              background: isLast ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.12)',
-              cursor: isLast ? 'not-allowed' : 'pointer',
-              border: '1px solid rgba(255,255,255,0.1)',
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
-              <path d="M4 2L8 6L4 10" stroke={isLast ? 'rgba(255,255,255,0.2)' : 'white'} strokeWidth="1.5" />
-            </svg>
-          </button>
+          {isLast ? (
+            <a
+              href="https://lg-kyn-unified-cdp.lemonriver-6b4673f8.centralindia.azurecontainerapps.io"
+              target="_blank"
+              rel="noreferrer"
+              className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all hover:bg-white/20"
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                cursor: 'pointer',
+                border: '1px solid rgba(255,255,255,0.1)',
+              }}
+              title="Open Interactive Demo"
+            >
+              <MonitorPlay className="w-[16px] h-[16px] text-white" />
+            </a>
+          ) : (
+            <button
+              onClick={advance}
+              className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all"
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                cursor: 'pointer',
+                border: '1px solid rgba(255,255,255,0.1)',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+                <path d="M4 2L8 6L4 10" stroke="white" strokeWidth="1.5" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
     </div>
