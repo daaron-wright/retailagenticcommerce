@@ -8,25 +8,25 @@ interface SKUAlertPanelProps {
 
 const skuItems = [
   {
-    name: "Purified Water: 32pk Cases",
-    sku: "SKU-1243",
+    name: "Yankee Candle: Large Jar Candles",
+    sku: "SKU-3371",
     location: "Southeast DC",
     cover: "1.8 days cover remaining",
-    priority: "critical" as const,
+    priority: "high" as const,
   },
   {
-    name: "Duracell Batteries: 24pk",
-    sku: "SKU-6789",
+    name: "Fancy Feast Wet Cat Food: 12pk",
+    sku: "SKU-4482",
     location: "Southeast DC",
     cover: "2.1 days cover remaining",
     priority: "high" as const,
   },
   {
-    name: "Blue Buffalo Dog Food: 5lb",
-    sku: "SKU-9012",
+    name: "Dannon Greek Yogurt: 12pk",
+    sku: "SKU-5590",
     location: "Southeast DC",
-    cover: "2.4 days cover remaining",
-    priority: "high" as const,
+    cover: "1.9 days cover remaining",
+    priority: "critical" as const,
   },
 ];
 
@@ -66,7 +66,7 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
         {view === "notification" ? (
           <div className="px-5 py-5">
             <p className="text-[#333] text-[13px] leading-[21px]" style={{ fontFamily: F }}>
-              1 Chilled SKU at Southeast DC is understocked due to severe weather disruptions at a key supplier, combined with fuel price spikes.
+              3 critical SKUs at Southeast DC are understocked due to severe weather disruptions at key suppliers, combined with fuel price spikes.
             </p>
 
             <div className="sku-alert-impact-highlight mt-4 rounded-lg px-4 py-3">
@@ -109,13 +109,13 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    1 critical supplier is disrupted because of the incoming severe weather event.
+                    3 critical suppliers are disrupted because of the incoming severe weather event.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    1 chilled SKU coming from that supplier has been affected, is running low and is nearing expected reordering window.
+                    3 SKUs coming from those suppliers have been affected, are running low and are nearing expected reordering window.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
