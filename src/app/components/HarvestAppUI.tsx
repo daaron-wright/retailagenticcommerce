@@ -233,6 +233,84 @@ function DatePickerUI({ onAction }: { onAction?: () => void }) {
   );
 }
 
+// Date picker with flip confirmation
+function DatePickerFlipUI({ onAction }: { onAction?: () => void }) {
+  const [selectedDate, setSelectedDate] = useState(14);
+  const [flipped, setFlipped] = useState(false);
+  const flip = (e: React.MouseEvent) => { e.stopPropagation(); setFlipped(true); };
+  const advance = (e: React.MouseEvent) => { e.stopPropagation(); onAction?.(); };
+
+  return (
+    <div className="w-full h-full bg-white" style={{ perspective: 800 }}>
+      <div
+        className="relative w-full h-full transition-transform duration-700"
+        style={{
+          transformStyle: "preserve-3d",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+        }}
+      >
+        {/* Front — Date Picker */}
+        <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
+          <div className="w-full h-full flex flex-col bg-white">
+            <div className="px-4 pt-[44px] pb-2 flex items-center gap-2" style={{ background: SPRUCE }}>
+              <HHLogo size={28} />
+              <p className="text-white text-[12px]" style={{ fontFamily: F, fontWeight: 700 }}>Select New Date</p>
+            </div>
+            <div className="px-4 pt-3 flex-1 space-y-2">
+              <p className="text-gray-800 text-[11px]" style={{ fontFamily: F, fontWeight: 600 }}>April 2026</p>
+              <div className="grid grid-cols-7 gap-0.5 text-center text-[8px] text-gray-400" style={{ fontFamily: F }}>
+                {["S","M","T","W","T","F","S"].map((d,i) => <div key={`h-${i}`}>{d}</div>)}
+              </div>
+              <div className="grid grid-cols-7 gap-0.5 text-center text-[9px]" style={{ fontFamily: F }}>
+                {Array.from({length: 30}, (_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); setSelectedDate(i); }}
+                    className={`py-1 rounded-full cursor-pointer transition-all ${
+                      i === selectedDate ? "text-white" : i < 5 ? "text-gray-300" : "text-gray-600 hover:bg-gray-100"
+                    }`}
+                    style={i === selectedDate ? { background: SPRUCE } : {}}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+              <Card className="p-2">
+                <p className="text-gray-400 text-[9px]" style={{ fontFamily: F }}>Selected</p>
+                <p className="text-gray-800 text-[11px]" style={{ fontFamily: F, fontWeight: 600 }}>April {selectedDate + 1}, 2026 — 9:00 AM</p>
+              </Card>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 p-1.5 rounded-lg border" style={{ background: `${SPRUCE}0D`, borderColor: `${SPRUCE}30` }}>
+                  <Syringe className="w-3 h-3 shrink-0" style={{ color: SPRUCE }} />
+                  <p className="text-[9px]" style={{ fontFamily: F, color: SPRUCE }}>Flu shot rescheduled</p>
+                </div>
+                <div className="flex items-center gap-2 p-1.5 rounded-lg border" style={{ background: `${SPRUCE}0D`, borderColor: `${SPRUCE}30` }}>
+                  <Package className="w-3 h-3 shrink-0" style={{ color: SPRUCE }} />
+                  <p className="text-[9px]" style={{ fontFamily: F, color: SPRUCE }}>Paper towels rescheduled</p>
+                </div>
+              </div>
+              <AppBtn label="Confirm Selection" onClick={flip} />
+            </div>
+          </div>
+        </div>
+        {/* Back — Thank You Confirmation */}
+        <div className="absolute inset-0" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
+          <div className="w-full h-full flex flex-col items-center justify-center px-5 bg-white">
+            <Card className="p-5 w-full text-center space-y-3">
+              <div className="flex justify-center"><CheckCircle className="w-6 h-6" style={{ color: SPRUCE }} /></div>
+              <p className="text-gray-800 text-[13px] leading-[20px]" style={{ fontFamily: F, fontWeight: 700 }}>
+                Thank you!<br />Your delivery and flu shot<br />has been rescheduled<br />for April {selectedDate + 1}, 2026
+              </p>
+              <p className="text-gray-400 text-[10px]" style={{ fontFamily: F }}>You will receive an email confirmation shortly.</p>
+              <AppBtn label="Done" onClick={advance} />
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Shopping cart
 function ShoppingCartUI({ onAction }: { onAction?: () => void }) {
   const [quantities, setQuantities] = useState([1, 1, 1, 1, 1, 1]);
@@ -503,6 +581,7 @@ export function HarvestAppUI({ type, onAction }: { type?: string; onAction?: () 
     case "reschedule-storm": return <RescheduleUI onAction={onAction} />;
     case "reschedule-confirm": return <RescheduleConfirmUI onAction={onAction} />;
     case "date-picker": return <DatePickerUI onAction={onAction} />;
+    case "date-picker-flip": return <DatePickerFlipUI onAction={onAction} />;
     case "shopping-cart": return <ShoppingCartUI onAction={onAction} />;
     case "insulin": return <InsulinUI onAction={onAction} />;
     case "pickup-select": return <PickupUI onAction={onAction} />;
