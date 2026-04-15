@@ -92,13 +92,8 @@ function HarvestRewardsUI() {
 // Flu shot + Subscription flip card
 function FluShotUI({ onAction }: { onAction?: () => void }) {
   const [flipped, setFlipped] = useState(false);
-  const [clicked, setClicked] = useState(false);
-  const go = (e: React.MouseEvent) => { e.stopPropagation(); setClicked(true); setTimeout(() => onAction?.(), 500); };
-
-  useEffect(() => {
-    const interval = setInterval(() => setFlipped(f => !f), 3500);
-    return () => clearInterval(interval);
-  }, []);
+  const flip = (e: React.MouseEvent) => { e.stopPropagation(); setFlipped(f => !f); };
+  const advance = (e: React.MouseEvent) => { e.stopPropagation(); onAction?.(); };
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center px-5 bg-white" style={{ perspective: 800 }}>
@@ -117,7 +112,7 @@ function FluShotUI({ onAction }: { onAction?: () => void }) {
             <p className="text-gray-800 text-[13px] leading-[20px]" style={{ fontFamily: F, fontWeight: 700 }}>
               Your flu shot is scheduled<br />for 9am on 04/07/26<br />with Harvest Pharmacy
             </p>
-            <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} />
+            <AppBtn label="Confirm" onClick={flip} />
           </Card>
         </div>
         {/* Back — Subscription */}
@@ -127,7 +122,7 @@ function FluShotUI({ onAction }: { onAction?: () => void }) {
             <p className="text-gray-800 text-[13px] leading-[20px]" style={{ fontFamily: F, fontWeight: 700 }}>
               Your subscription of paper<br />towels is scheduled<br />for delivery on 04/8/26
             </p>
-            <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} />
+            <AppBtn label="Confirm" onClick={advance} />
           </Card>
         </div>
       </div>
