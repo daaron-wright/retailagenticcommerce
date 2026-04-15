@@ -197,7 +197,7 @@ export const screens: Screen[] = [
     backgroundVideo: chp1IntroVideo,
     personaImage: ELENA_IMG,
     personaSmall: true,
-    body: "Elena reviews her order summary — subtotal $122.28 with free shipping and $4.17 in taxes for a total of $126.45 — and places her order.",
+    body: "Elena reviews her order summary and places her order.",
     appUIType: "order-total",
   },
   // === Processing / Loading beat ===
