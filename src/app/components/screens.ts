@@ -123,17 +123,6 @@ export const screens: Screen[] = [
     appUIType: "flu-shot",
   },
   {
-    id: "ch1-s4b",
-    chapter: 1,
-    type: "narrative",
-    background: "scene",
-    backgroundVideo: chp1IntroVideo,
-    personaImage: ELENA_IMG,
-    personaSmall: true,
-    body: "Elena also sees her paper towel subscription delivery is upcoming.",
-    appUIType: "subscription",
-  },
-  {
     id: "ch1-s5",
     chapter: 1,
     type: "narrative",

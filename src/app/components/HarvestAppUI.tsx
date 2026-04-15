@@ -1,5 +1,5 @@
 // Harvest House phone screens for Chapter 1 — white bg, spruce primary
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 const hhLogo = "https://cdn.builder.io/api/v1/image/assets%2F4f55495a54b1427b9bd40ba1c8f3c8aa%2F831b365cc9f34f0bb4bf8c624416f298?format=webp&width=800&height=1200";
 import {
   CalendarDays, Truck, AlertTriangle, CheckCircle, Pill, Store,
@@ -89,19 +89,48 @@ function HarvestRewardsUI() {
   );
 }
 
-// Flu shot
+// Flu shot + Subscription flip card
 function FluShotUI({ onAction }: { onAction?: () => void }) {
+  const [flipped, setFlipped] = useState(false);
   const [clicked, setClicked] = useState(false);
   const go = (e: React.MouseEvent) => { e.stopPropagation(); setClicked(true); setTimeout(() => onAction?.(), 500); };
+
+  useEffect(() => {
+    const interval = setInterval(() => setFlipped(f => !f), 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center px-5 bg-white">
-      <Card className="p-5 w-full text-center space-y-3">
-        <div className="flex justify-center"><CalendarDays className="w-6 h-6" style={{ color: SPRUCE }} /></div>
-        <p className="text-gray-800 text-[13px] leading-[20px]" style={{ fontFamily: F, fontWeight: 700 }}>
-          Your flu shot is scheduled<br />for 9am on 04/07/26<br />with Harvest Pharmacy
-        </p>
-        <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} />
-      </Card>
+    <div className="w-full h-full flex flex-col items-center justify-center px-5 bg-white" style={{ perspective: 800 }}>
+      <div
+        className="relative w-full transition-transform duration-700"
+        style={{
+          transformStyle: "preserve-3d",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          minHeight: 200,
+        }}
+      >
+        {/* Front — Flu Shot */}
+        <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
+          <Card className="p-5 w-full text-center space-y-3">
+            <div className="flex justify-center"><CalendarDays className="w-6 h-6" style={{ color: SPRUCE }} /></div>
+            <p className="text-gray-800 text-[13px] leading-[20px]" style={{ fontFamily: F, fontWeight: 700 }}>
+              Your flu shot is scheduled<br />for 9am on 04/07/26<br />with Harvest Pharmacy
+            </p>
+            <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} />
+          </Card>
+        </div>
+        {/* Back — Subscription */}
+        <div className="absolute inset-0" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
+          <Card className="p-5 w-full text-center space-y-3">
+            <div className="flex justify-center"><Truck className="w-6 h-6" style={{ color: SPRUCE }} /></div>
+            <p className="text-gray-800 text-[13px] leading-[20px]" style={{ fontFamily: F, fontWeight: 700 }}>
+              Your subscription of paper<br />towels is scheduled<br />for delivery on 04/8/26
+            </p>
+            <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} />
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
