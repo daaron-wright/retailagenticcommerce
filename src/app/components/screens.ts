@@ -262,7 +262,7 @@ export const screens: Screen[] = [
     personaImage: SCOTT_IMG,
     secondaryPersonaImage: WAR_ROOM_IMG,
     personaName: "Scott",
-    body: "Meet Scott the Vice President of Supply Chain Management (SCM), visually situated in a meeting room using a laptop or projecting information.",
+    body: "Meet Scott the Vice President of Supply Chain Management (SCM) at Harvest House.",
   },
   {
     id: "ch2-s2",
