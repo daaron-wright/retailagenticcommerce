@@ -799,7 +799,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
 
                   {/* Dashboard: custom panel, iframe, or DashboardUI */}
                   {screen.customPanel === "reorder-approval" ? (
-                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580 }}>
+                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580, maxHeight: 'calc(100% - 200px)' }}>
                       <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#5b6dde] animate-pulse" />
@@ -811,7 +811,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                       </div>
                     </div>
                   ) : screen.customPanel === "sku-alert" ? (
-                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580 }}>
+                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580, maxHeight: 'calc(100% - 200px)' }}>
                       <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#5b6dde] animate-pulse" />
