@@ -94,7 +94,7 @@ export const screens: Screen[] = [
     backgroundVideo: chp1IntroVideo,
     personaImage: ELENA_IMG,
     personaSmall: true,
-    body: "Elena is engaging in online searches and purchases for essential items required by her family, individual needs, even her pets prior to a major winter storm. The urgency is due to several days of confinement to the family home.",
+    body: "Elena is engaging in online searches and purchases for essential items required by her family and even her pets prior to a major winter storm. The urgency is due to several days of confinement to the family home.",
     appUIType: "harvest-splash",
   },
   {
