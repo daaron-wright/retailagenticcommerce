@@ -43,12 +43,12 @@ export function NotificationCard({ icon = "default", title, message, action, onA
         transform: dismissed ? "translateX(40px)" : "translateX(0)",
       }}
     >
-      <div className={`bg-gradient-to-b from-white to-[#f2f1ee] rounded-[20px] shadow-[0_0_10px_10px_rgba(0,0,0,0.07)] p-5 max-w-[500px] transition-all duration-300 ${clicked ? "ring-2 ring-green-400/50" : ""}`}>
-        {/* Swipe hint / dismiss */}
+      <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-5 max-w-[500px] border border-white/10 transition-all duration-300 ${clicked ? "ring-2 ring-green-400/50" : ""}`}>
+        {/* Dismiss */}
         <div className="flex justify-end mb-1">
           <button
             onClick={handleDismiss}
-            className="text-[10px] text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+            className="text-[10px] text-white/40 hover:text-white/60 transition-colors cursor-pointer"
             style={{ fontFamily: "'Open Sans', sans-serif" }}
           >
             Dismiss ✕
@@ -59,8 +59,8 @@ export function NotificationCard({ icon = "default", title, message, action, onA
             <div className="text-white">{iconMap[icon] || iconMap.default}</div>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-[#282b3e] text-[14px] font-semibold" style={{ fontFamily: "'Open Sans', sans-serif" }}>{title}</p>
-            <p className="text-[#282b3e] text-[14px] mt-1 leading-[19px]" style={{ fontFamily: "'Open Sans', sans-serif" }}>{message}</p>
+            <p className="text-white text-[14px] font-semibold" style={{ fontFamily: "'Open Sans', sans-serif" }}>{title}</p>
+            <p className="text-white/70 text-[14px] mt-1 leading-[19px]" style={{ fontFamily: "'Open Sans', sans-serif" }}>{message}</p>
           </div>
           <button
             onClick={handleAction}
