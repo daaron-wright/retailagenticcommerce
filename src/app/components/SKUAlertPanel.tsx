@@ -66,7 +66,7 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
         {view === "notification" ? (
           <div className="px-5 py-5">
             <p className="text-[#333] text-[13px] leading-[21px]" style={{ fontFamily: F }}>
-              1 Chilled SKU at Southeast DC is understocked due to severe weather disruptions at key suppliers, combined with fuel price spikes.
+              3 Critical SKUs at Southeast DC are understocked due to severe weather disruptions at key suppliers, combined with fuel price spikes.
             </p>
 
             <div className="sku-alert-impact-highlight mt-4 rounded-lg px-4 py-3">
