@@ -39,7 +39,7 @@ function MetricDetail({ metric }: { metric: Metric }) {
     "System Performance": ["CPU utilization: 78%", "Memory: 64% allocated", "Queue depth: 1,847"],
     "Avg Response Time": ["P50: 4.2 hours", "P95: 18.6 hours", "SLA breaches: 14"],
     "Root Cause": ["Category 3 winter storm", "12 counties affected", "Duration: 48-72 hours"],
-    "Impacted SKUs": ["Water/beverages: 312", "Food/essentials: 298", "Medical/pharmacy: 237"],
+    "Impacted SKUs": ["Yankee Candle: SKU-3371", "Fancy Feast Cat Food: SKU-4482", "Dannon Yogurt: SKU-5590"],
     "Risk Window": ["Current time: 11:47 AM", "Decision deadline: 2:00 PM", "Auto-escalation at 1:30 PM"],
     "Revenue at Risk": ["Online channel: $1.4M", "In-store channel: $680K", "Pharmacy: $320K"],
   };
@@ -152,7 +152,7 @@ export function DashboardUI({ metrics, type, title, onAction }: Props) {
       {/* Footer */}
       <div className="px-4 pb-3 flex items-center justify-between mt-auto">
         <div className="flex items-center gap-3">
-          <span className="text-[8px] text-white/20" style={{ fontFamily: F }}>SKUs affected: <span className="text-amber-400">847</span></span>
+          <span className="text-[8px] text-white/20" style={{ fontFamily: F }}>SKUs affected: <span className="text-amber-400">3</span></span>
           <span className="text-[8px] text-white/20" style={{ fontFamily: F }}>Active agents: <span className="text-[#5b6dde]">3</span></span>
         </div>
         <span className="text-[8px] text-white/20" style={{ fontFamily: F }}>Updated just now</span>

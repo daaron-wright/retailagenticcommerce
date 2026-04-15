@@ -380,7 +380,7 @@ export const screens: Screen[] = [
       type: "incident",
       metrics: [
         { label: "Root Cause", value: "Winter Storm", status: "critical" },
-        { label: "Impacted SKUs", value: "847", status: "critical" },
+        { label: "Impacted SKUs", value: "3", status: "critical" },
         { label: "Risk Window", value: "Closes 2PM", status: "critical" },
         { label: "Revenue at Risk", value: "$2.4M", status: "critical" },
       ],
