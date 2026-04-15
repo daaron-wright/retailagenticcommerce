@@ -952,7 +952,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
           </button>
           {isLast ? (
             <a
-              href="https://lg-kyn-unified-cdp.lemonriver-6b4673f8.centralindia.azurecontainerapps.io"
+              href="https://unifiedaicontroltowerforretail.replit.app"
               target="_blank"
               rel="noreferrer"
               className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all hover:bg-white/20"
