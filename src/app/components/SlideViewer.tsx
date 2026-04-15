@@ -40,6 +40,37 @@ function PersonaSmall({ src }: { src: string }) {
   );
 }
 
+function GlassAlertNotification({ title, message, action, onAction }: { title: string; message: string; action: string; onAction?: () => void }) {
+  const [clicked, setClicked] = useState(false);
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setClicked(true);
+    setTimeout(() => onAction?.(), 600);
+  };
+  return (
+    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 w-[360px] border border-white/10 space-y-3">
+      <button className="w-full bg-red-500/15 border border-red-400/30 rounded-lg px-3 py-2 flex items-center gap-2 cursor-default" style={{ background: "none", backgroundColor: "rgba(239,68,68,0.15)" }}>
+        <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+        <p className="text-red-300 text-[12px]" style={{ fontFamily: F, fontWeight: 600 }}>{title}</p>
+      </button>
+      <p className="text-white/70 text-[12px] leading-[18px]" style={{ fontFamily: F }}>{message}</p>
+      <div className="pt-1">
+        <button
+          onClick={handleClick}
+          className={`text-white text-[12px] py-2 px-5 rounded-full inline-block transition-all duration-300 cursor-pointer ${
+            clicked
+              ? "bg-gradient-to-b from-[#22c55e] to-[#16a34a]"
+              : "bg-gradient-to-b from-[#5b6dde] to-[#273489] hover:from-[#6b7dee] hover:to-[#374499]"
+          }`}
+          style={{ fontFamily: F, fontWeight: 600 }}
+        >
+          {clicked ? "✓ Done" : action}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
   const F2 = "'Open Sans', sans-serif";
   const [clicked, setClicked] = useState(false);
@@ -703,15 +734,12 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                           </div>
                         </PhoneMockup>
                       ) : (
-                        <div className="w-[340px]">
-                          <GlassNotification
-                            icon={screen.notificationCard.icon}
-                            title={screen.notificationCard.title}
-                            message={screen.notificationCard.message}
-                            action={screen.notificationCard.action}
-                            onAction={advance}
-                          />
-                        </div>
+                        <GlassAlertNotification
+                          title={screen.notificationCard.title}
+                          message={screen.notificationCard.message}
+                          action={screen.notificationCard.action}
+                          onAction={advance}
+                        />
                       )}
                     </div>
                   )}
