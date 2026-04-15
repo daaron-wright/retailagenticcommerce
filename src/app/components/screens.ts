@@ -324,7 +324,7 @@ export const screens: Screen[] = [
     personaImage: JOHNATHAN_IMG,
     personaSmall: true,
     voiceCommand: "Approve order",
-    body: "Johnathon approves the planning agent\u2019s recommendation for the required levels of necessity items with a click to order. The system confirms and notifies the next persona in the business workflow (SCM Manager) who will notify the suppliers to meet the required inventory related to the critical SKUs.",
+    body: "Jonathan approves the planning agent\u2019s recommendation for the required levels of necessity items with a click to order.\nThe system confirms and notifies the next persona in the business workflows, the supply chain manager who will notify the suppliers to meet the required inventory related to the critical SKUs.",
     appUIType: "approve-order",
   },
 
