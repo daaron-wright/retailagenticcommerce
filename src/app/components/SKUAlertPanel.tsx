@@ -66,12 +66,12 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
         {view === "notification" ? (
           <div className="px-5 py-5">
             <p className="text-[#333] text-[13px] leading-[21px]" style={{ fontFamily: F }}>
-              3 Chilled SKUs at Southeast DC are understocked due to severe weather disruptions at key suppliers, combined with fuel price spikes.
+              1 Chilled SKU at Southeast DC is understocked due to severe weather disruptions at a key supplier, combined with fuel price spikes.
             </p>
 
             <div className="sku-alert-impact-highlight mt-4 rounded-lg px-4 py-3">
               <p className="text-[#dc2626] text-[13px] font-semibold leading-[20px]" style={{ fontFamily: F }}>
-                Projected revenue impact: $2.4M per day · Ordering window closes at 14:00 today.
+                Projected revenue impact: $2.4M per day · Ordering window closes at 2:00 PM today.
               </p>
             </div>
 
@@ -109,19 +109,19 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    3 critical suppliers are disrupted because of the incoming severe weather event.
+                    1 critical supplier is disrupted because of the incoming severe weather event.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    3 necessity SKUs coming from those suppliers have been affected, are running low and are nearing expected reordering window.
+                    1 chilled SKU coming from that supplier has been affected, is running low and is nearing expected reordering window.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet-red mt-[7px]" />
                   <p className="text-[#dc2626] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    Emergency reorder approval is required before the 14:00 cut-off.
+                    Emergency reorder approval is required before the 2:00 PM cut-off.
                   </p>
                 </li>
               </ul>
