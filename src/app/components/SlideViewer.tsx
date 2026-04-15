@@ -703,7 +703,15 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                           </div>
                         </PhoneMockup>
                       ) : (
-                        <NotificationCard {...screen.notificationCard} onAction={advance} />
+                        <div className="w-[340px]">
+                          <GlassNotification
+                            icon={screen.notificationCard.icon}
+                            title={screen.notificationCard.title}
+                            message={screen.notificationCard.message}
+                            action={screen.notificationCard.action}
+                            onAction={advance}
+                          />
+                        </div>
                       )}
                     </div>
                   )}
