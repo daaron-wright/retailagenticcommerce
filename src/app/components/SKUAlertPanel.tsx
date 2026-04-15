@@ -115,7 +115,7 @@ export function SKUAlertPanel({ onResolve }: SKUAlertPanelProps) {
                 <li className="flex items-start gap-2.5">
                   <span className="sku-alert-bullet mt-[7px]" />
                   <p className="text-[#333] text-[12px] leading-[18px]" style={{ fontFamily: F }}>
-                    3 perishable SKUs coming from those 3 suppliers have been affected, are running low and are nearing expected reordering window.
+                    2 perishable SKUs coming from those 3 suppliers have been affected, are running low and are nearing expected reordering window.
                   </p>
                 </li>
                 <li className="flex items-start gap-2.5">
