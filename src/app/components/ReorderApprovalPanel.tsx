@@ -17,63 +17,63 @@ interface SkuState {
 
 const skuData = [
   {
-    supplier: "Matheson",
-    name: "Chilled Ready Meals: Chicken Tikka",
-    sku: "SKU-8821",
-    location: "Manchester DC",
+    supplier: "Regional Supply Co",
+    name: "Purified Water: 32pk Cases",
+    sku: "SKU-1243",
+    location: "Southeast DC",
     cover: "2 days cover remaining",
-    stock: "340 cases",
-    reorder: "12,000 cases",
-    unitCost: "£3.60",
-    total: "£43,200",
+    stock: "280 cases",
+    reorder: "10,000 cases",
+    unitCost: "$4.20",
+    total: "$42,000",
     priority: "high" as const,
     conditions: [
-      "Approve only if chilled transport (≤4°C) is confirmed by supplier",
+      "Approve only if chilled transport (≤39°F) is confirmed by supplier",
       "Auto-cancel if temperature log is not attached on delivery",
-      "Reduce to 6,000 cases if confirmed delivery ETA exceeds 18 days",
+      "Reduce to 5,000 cases if confirmed delivery ETA exceeds 18 days",
     ],
   },
   {
-    supplier: "Macrock",
-    name: "Fresh Dairy Desserts: Panna Cotta",
-    sku: "SKU-8834",
-    location: "Manchester DC",
+    supplier: "National Distributors",
+    name: "Duracell Batteries: 24pk",
+    sku: "SKU-6789",
+    location: "Southeast DC",
     cover: "2.1 days cover remaining",
-    stock: "180 cases",
-    reorder: "8,000 cases",
-    unitCost: "£2.10",
-    total: "£16,800",
+    stock: "150 cases",
+    reorder: "6,000 cases",
+    unitCost: "$8.50",
+    total: "$51,000",
     priority: "high" as const,
     conditions: [
-      "Approve only if chilled transport (≤4°C) is confirmed by supplier",
+      "Approve only if chilled transport (≤39°F) is confirmed by supplier",
       "Auto-cancel if temperature log is not attached on delivery",
-      "Reduce to 6,000 cases if confirmed delivery ETA exceeds 18 days",
+      "Reduce to 3,000 cases if confirmed delivery ETA exceeds 18 days",
     ],
   },
   {
-    supplier: "Edwin Fresh",
-    name: "Bagged Salad: Mixed Leaves",
-    sku: "SKU-8807",
-    location: "Manchester DC",
-    cover: "1.9 days cover remaining",
-    stock: "95 cases",
-    reorder: "6,000 cases",
-    unitCost: "£1.80",
-    total: "£10,800",
+    supplier: "PetCare Direct",
+    name: "Blue Buffalo Dog Food: 5lb",
+    sku: "SKU-9012",
+    location: "Southeast DC",
+    cover: "1.8 days cover remaining",
+    stock: "110 cases",
+    reorder: "5,000 cases",
+    unitCost: "$12.40",
+    total: "$62,000",
     priority: "critical" as const,
     conditions: [
-      "Approve only if chilled transport (≤4°C) is confirmed by supplier",
+      "Approve only if chilled transport (≤39°F) is confirmed by supplier",
       "Auto-cancel if temperature log is not attached on delivery",
-      "Reduce to 6,000 cases if confirmed delivery ETA exceeds 18 days",
+      "Reduce to 2,500 cases if confirmed delivery ETA exceeds 18 days",
     ],
   },
 ];
 
 const auditTimeline = [
-  { time: "06:15", agent: "Supplier Risk Monitoring Agent", color: "#dc2626", text: "Geopolitical disruption detected: primary Middle East supplier affected by active conflict. 2 Eastern Europe suppliers flagged due to tariffs and rising oil prices. 3 suppliers suspended." },
-  { time: "06:18", agent: "Inventory Analysis Agent", color: "#dc2626", text: "3 perishable SKUs at Manchester DC identified below threshold: SKU-8807 at 1.9 days cover, SKU-8834 at 2.1 days, SKU-8821 at 2.0 days. Avg supplier fulfilment: 15 days. Stock-out risk confirmed." },
-  { time: "06:19", agent: "Inventory Analysis Agent", color: "#dc2626", text: "Emergency reorder quantities calculated to restore 20-day cover: SKU-8807: 6,000 cases (Edwin Fresh), SKU-8834: 8,000 cases (Macrock), SKU-8821: 12,000 cases (Matheson). Projected revenue loss if unapproved: £576k." },
-  { time: "06:20", agent: "Alert Dispatch Agent", color: "#dc2626", text: "SKU Understock Alert dispatched to Supply Chain Manager dashboard. Ordering window closes 14:00." },
+  { time: "06:15", agent: "Supplier Risk Monitoring Agent", color: "#dc2626", text: "Severe weather event detected: primary regional supplier affected by incoming storm. 2 backup suppliers flagged due to supply chain delays and rising fuel prices. 3 suppliers suspended." },
+  { time: "06:18", agent: "Inventory Analysis Agent", color: "#dc2626", text: "3 critical SKUs at Southeast DC identified below threshold: SKU-9012 at 1.8 days cover, SKU-6789 at 2.1 days, SKU-1243 at 2.0 days. Avg supplier fulfilment: 12 days. Stock-out risk confirmed." },
+  { time: "06:19", agent: "Inventory Analysis Agent", color: "#dc2626", text: "Emergency reorder quantities calculated to restore 20-day cover: SKU-9012: 5,000 cases (PetCare Direct), SKU-6789: 6,000 cases (National Distributors), SKU-1243: 10,000 cases (Regional Supply Co). Projected revenue loss if unapproved: $576k." },
+  { time: "06:20", agent: "Alert Dispatch Agent", color: "#dc2626", text: "SKU Understock Alert dispatched to Supply Chain Manager dashboard. Ordering window closes 2:00 PM." },
   { time: "11:05", agent: "Supply Chain Manager", color: "#2d6a6a", text: "Notification viewed, expanded for detail" },
   { time: "11:08", agent: "Supply Chain Manager", color: "#2d6a6a", text: "Emergency Reorder Approval modal opened" },
   { time: "11:12", agent: "Supply Chain Manager", color: "#2d6a6a", text: "Decisions submitted: 3 of 3 approved. Ref: REPR-1775" },
@@ -144,13 +144,13 @@ export function ReorderApprovalPanel({ onNext }: ReorderApprovalPanelProps) {
                 <li className="reorder-overview-item">
                   <span className="reorder-bullet" />
                   <p className="reorder-overview-text">
-                    Your primary <strong>Middle East supplier</strong> is affected by the current Geopolitical tension. Two key <strong>Eastern Europe suppliers</strong> are disrupted due to tariffs and rising oil prices.
+                    Your primary <strong>regional supplier</strong> is affected by the incoming severe weather event. Two key <strong>backup suppliers</strong> are disrupted due to supply chain delays and rising fuel prices.
                   </p>
                 </li>
                 <li className="reorder-overview-item">
                   <span className="reorder-bullet" />
                   <p className="reorder-overview-text">
-                    <strong>3 perishable SKUs at Manchester DC</strong> are running below threshold stock levels and are at risk of stock-out within 2 days. Average supplier fulfilment time is <strong>15 days</strong>.
+                    <strong>3 critical SKUs at Southeast DC</strong> are running below threshold stock levels and are at risk of stock-out within 2 days. Average supplier fulfilment time is <strong>12 days</strong>.
                   </p>
                 </li>
                 <li className="reorder-overview-item">
@@ -162,7 +162,7 @@ export function ReorderApprovalPanel({ onNext }: ReorderApprovalPanelProps) {
                 <li className="reorder-overview-item">
                   <span className="reorder-bullet" />
                   <p className="reorder-overview-text">
-                    Current projected revenue loss due to understock is around <strong>£576k</strong>.
+                    Current projected revenue loss due to understock is around <strong>$576k</strong>.
                   </p>
                 </li>
               </ul>
@@ -360,7 +360,7 @@ export function ReorderApprovalPanel({ onNext }: ReorderApprovalPanelProps) {
                   <ul className="reorder-next-list">
                     <li>→ Relevant agents notified, emergency delivery slots being confirmed</li>
                     <li>→ Policy engine activated, conditions monitored in real time, auto-cancel if breached</li>
-                    <li>→ Projected revenue loss reduced by 100%, from £576,000 to £0</li>
+                    <li>→ Projected revenue loss reduced by 100%, from $576,000 to $0</li>
                   </ul>
                 </div>
 
