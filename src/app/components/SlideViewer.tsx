@@ -19,6 +19,7 @@ import Chapter3Panel32 from "../../imports/Chapter3Panel32-1/Chapter3Panel32-19-
 import KyndrylWhiteLogo from "../../imports/Kyndryl-3/Kyndryl-19-5998";
 import { GlassNotification } from "./GlassNotification";
 import { SKUAlertPanel } from "./SKUAlertPanel";
+import { ReorderApprovalPanel } from "./ReorderApprovalPanel";
 import { MonitorPlay } from "lucide-react";
 
 const F = "'Open Sans', sans-serif";
@@ -761,7 +762,19 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                   ) : null}
 
                   {/* Dashboard: custom panel, iframe, or DashboardUI */}
-                  {screen.customPanel === "sku-alert" ? (
+                  {screen.customPanel === "reorder-approval" ? (
+                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580 }}>
+                      <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#5b6dde] animate-pulse" />
+                          <span className="text-white/90 text-[11px] tracking-wider uppercase" style={{ fontWeight: 600 }}>Agentic Orchestration Center</span>
+                        </div>
+                      </div>
+                      <div className="flex-1 w-full relative overflow-auto bg-[#f5f5f5] p-4">
+                        <ReorderApprovalPanel onNext={advance} />
+                      </div>
+                    </div>
+                  ) : screen.customPanel === "sku-alert" ? (
                     <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580 }}>
                       <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
                         <div className="flex items-center gap-2">

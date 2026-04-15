@@ -410,10 +410,7 @@ export const screens: Screen[] = [
     personaSmall: true,
     voiceCommand: "Approve recommendation",
     body: "Next, Anna scrolls down to the agent\u2019s recommendation panel where the inventory analysis agent and logistics agent have worked together to propose an emergency reorder plan with the appropriate suppliers who can fulfill on time and on budget. Anna approves the recommendation which triggers the appropriate inventory levels arriving in the DC and stores.",
-    iframeUrl: "https://unifiedaicontroltowerforretail.replit.app/dashboard/supply-chain",
-    iframeTitle: "Agentic Orchestration Center",
-    iframeZoom: 1.5,
-    demoLink: "https://lg-kyn-unified-cdp.lemonriver-6b4673f8.centralindia.azurecontainerapps.io",
+    customPanel: "reorder-approval",
   },
   // === Processing beat ===
   {
