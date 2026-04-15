@@ -358,7 +358,7 @@ export const screens: Screen[] = [
     backgroundVideo: ANNA_BG_VIDEO,
     personaImage: ANNA_IMG,
     personaSmall: true,
-    body: "Anna receives a notification from her SCM dashboard. The notification is an alert mechanism coming from the Supply Chain Agent to approve immediate re-order of critical SKUs from relevant suppliers.",
+    body: "Anna receives a notification from the Agentic Orchestration Center. The notification is an alert mechanism coming from the Supply Chain Agent to approve immediate re-order of critical SKUs from relevant suppliers.",
     notificationCard: {
       icon: "alert",
       title: "Supply Chain Agent",
