@@ -292,7 +292,7 @@ export const screens: Screen[] = [
     personaSmall: true,
     body: "The demand planner approves inventory purchases recommended by the Agentic Orchestration Center, which analyzes inventory and forecast needs proactively based on integrated legacy systems, modern platforms, and third-party applications and data sources.",
     overlayCard: {
-      text: "The Agentic solution is providing real-time stock levels needed to meet the current demand variance of necessity products from both online and in-store channels.",
+      text: "The Agentic Orchestration Center analyzes inventory and forecast needs proactively based on integrated legacy systems, modern platforms, and third-party applications and data sources.",
     },
   },
   {
