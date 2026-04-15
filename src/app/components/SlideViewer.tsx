@@ -193,50 +193,71 @@ function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
   }
 
   if (type === "approve-order") {
-    const orders = [
-      { name: "SKU 1243 (Water)", detail: "1,200 units" },
-      { name: "SKU 6789 (Batteries)", detail: "850 units" },
-      { name: "SKU 9012 (Generators)", detail: "420 units" },
+    const skus = [
+      { name: "Purified Water - 32pk", sku: "SKU-1243", location: "Southeast DC", cover: "1.8 days cover remaining", priority: "critical" as const },
+      { name: "Duracell AA Batteries - 24pk", sku: "SKU-6789", location: "Southeast DC", cover: "2.1 days cover remaining", priority: "high" as const },
+      { name: "Grade A Large Eggs - 12ct", sku: "SKU-4401", location: "Southeast DC", cover: "2.4 days cover remaining", priority: "high" as const },
     ];
-    const toggleOrder = (idx: number, e: React.MouseEvent) => {
-      e.stopPropagation();
-      setCheckedSuppliers(prev => prev.map((v, i) => i === idx ? !v : v));
+    const priorityStyles = {
+      critical: { bg: "bg-red-50", border: "border-red-200", text: "text-red-600", badge: "bg-red-100 text-red-700" },
+      high: { bg: "bg-amber-50", border: "border-amber-200", text: "text-amber-700", badge: "bg-amber-100 text-amber-700" },
     };
 
     return (
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 w-[360px] border border-white/10 space-y-3">
-        <p className="text-white text-[14px]" style={{ fontFamily: F2, fontWeight: 600 }}>Demand Approval</p>
-        <div className="bg-blue-500/15 border border-blue-400/30 rounded-lg px-4 py-2">
-          <p className="text-blue-300 text-[11px]" style={{ fontFamily: F2 }}>Planning Agent Recommendation</p>
-        </div>
-        <div className="space-y-2 text-[12px]" style={{ fontFamily: F2 }}>
-          {orders.map((o, i) => (
-            <button
-              key={i}
-              onClick={(e) => toggleOrder(i, e)}
-              className={`w-full flex justify-between items-center px-2 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ${
-                checkedSuppliers[i] ? "bg-green-500/15 border border-green-400/30" : "hover:bg-white/5 border border-transparent"
-              }`}
-            >
-              <span className="text-white/50 flex items-center gap-2">
-                <span className={`inline-block w-3 h-3 rounded-sm border transition-all flex items-center justify-center ${
-                  checkedSuppliers[i] ? "bg-green-500 border-green-400" : "border-white/30"
-                }`}>
-                  {checkedSuppliers[i] && <svg viewBox="0 0 12 12" className="w-2.5 h-2.5"><path d="M3 6l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/></svg>}
-                </span>
-                {o.name}
-              </span>
-              <span className="text-white/90 font-medium">{o.detail}</span>
-            </button>
-          ))}
-          <div className="flex justify-between px-2 pt-1 border-t border-white/10 mt-1">
-            <span className="text-white/50">Fulfillment ETA</span>
-            <span className="text-green-400">6-8 hours</span>
+      <div className="bg-white rounded-2xl shadow-xl w-[360px] overflow-hidden border border-gray-200" style={{ fontFamily: F2 }}>
+        {/* Header */}
+        <div className="bg-[#dc2626] px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            <p className="text-white text-[12px]" style={{ fontWeight: 700 }}>SKU Understock Alert, Action Required</p>
           </div>
+          <button onClick={handleButtonClick} className="text-white/70 hover:text-white text-[14px] cursor-pointer" style={{ background: "none", border: "none", padding: 0 }}>✕</button>
         </div>
-        <div className="pt-2">
-          <button onClick={handleButtonClick} className={`${pillBase} ${pillActive}`} style={{ fontFamily: F2 }}>
-            {clicked ? "✓ Demand Approved" : "Approve Demand"}
+
+        <div className="p-4 space-y-3">
+          {/* Overview */}
+          <div className="border border-dashed border-gray-300 rounded-lg p-3 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <p className="text-red-600 text-[10px] uppercase tracking-wider" style={{ fontWeight: 700 }}>Overview</p>
+              <p className="text-red-400 text-[8px] uppercase tracking-wider" style={{ fontWeight: 600 }}>Supplier Risk Monitoring Agent</p>
+            </div>
+            <ul className="space-y-1 text-[10px] text-gray-700 leading-[15px]" style={{ listStyle: "disc", paddingLeft: 16 }}>
+              <li>3 critical suppliers are disrupted because of current weather emergency and demand surge.</li>
+              <li>3 necessity SKUs from those suppliers have been affected, are running low and nearing expected reordering window.</li>
+              <li>Emergency reorder approval is required before the 14:00 cut-off.</li>
+            </ul>
+          </div>
+
+          {/* SKUs */}
+          <p className="text-gray-500 text-[9px] uppercase tracking-wider" style={{ fontWeight: 700 }}>SKUs Requiring Attention</p>
+          <div className="space-y-2">
+            {skus.map((s, i) => {
+              const ps = priorityStyles[s.priority];
+              return (
+                <div key={i} className={`${ps.bg} ${ps.border} border rounded-lg px-3 py-2 flex items-center justify-between`}>
+                  <div>
+                    <p className="text-gray-800 text-[11px]" style={{ fontWeight: 600 }}>{s.name}</p>
+                    <p className="text-gray-400 text-[9px]">{s.sku}, {s.location}, <span className="font-semibold text-gray-600">{s.cover}</span></p>
+                  </div>
+                  <span className={`${ps.badge} text-[8px] px-2 py-0.5 rounded-full`} style={{ fontWeight: 600 }}>
+                    {s.priority === "critical" ? "Critical Priority" : "High Priority"}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="text-gray-500 text-[10px] leading-[15px]">Emergency reorder quantities calculated by the Inventory Analysis Agent. Click below to approve.</p>
+
+          {/* Resolve */}
+          <button
+            onClick={handleButtonClick}
+            className={`w-full text-white text-[13px] py-2.5 rounded-lg cursor-pointer transition-all ${
+              clicked ? "bg-green-600" : "bg-[#dc2626] hover:bg-[#b91c1c]"
+            }`}
+            style={{ fontWeight: 700, border: "none" }}
+          >
+            {clicked ? "✓ Resolved" : "Resolve"}
           </button>
         </div>
       </div>
