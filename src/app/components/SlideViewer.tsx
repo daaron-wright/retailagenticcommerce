@@ -917,7 +917,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
           </button>
           {isLast ? (
             <a
-              href="https://ai-orchestration-center-weather.replit.app"
+              href="https://retail-day-demo-frontend.wittyfield-f31b523c.eastus2.azurecontainerapps.io/dashboard/supply-chain"
               target="_blank"
               rel="noreferrer"
               className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all hover:bg-white/20"

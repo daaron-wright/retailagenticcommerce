@@ -67,7 +67,7 @@ export function UpdatedNav({ activeChapter = 1, color = "#F2F1EF", onChapterClic
         <TrackerCircle num={3} active={activeChapter === 3} onClick={() => onChapterClick?.(3)} />
       </div>
       <DemoTooltip 
-        href="https://ai-orchestration-center-weather.replit.app" 
+        href="https://retail-day-demo-frontend.wittyfield-f31b523c.eastus2.azurecontainerapps.io/dashboard/supply-chain" 
         color={color}
       />
       {/* Storefront icon */}
