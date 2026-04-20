@@ -120,7 +120,7 @@ export const screens: Screen[] = [
     backgroundVideo: chp1IntroVideo,
     personaImage: ELENA_IMG,
     personaSmall: true,
-    body: "Elena opens her Harvest House application. The application is hyper-personalized and she is greeted with welcome back to Harvest & notified that she has a flu shot scheduled and a scheduled delivery per her subscription for paper towels are upcoming.",
+    body: "Elena opens her Harvest House application. The application is hyper-personalized and she is greeted with welcome back to Harvest. She is notified about her scheduled flu shot and upcoming paper towel subscription delivery.",
     appUIType: "flu-shot",
   },
   {
