@@ -406,7 +406,6 @@ function PickupUI({ onAction }: { onAction?: () => void }) {
         <p className="text-[#ff462d] text-[12px] leading-[18px]" style={{ fontFamily: F, fontWeight: 700 }}>
           Due to the winter storm,<br />home delivery is unavailable.<br />You may pick your order up<br />in-store between 8am - 10pm.
         </p>
-        <p className="text-gray-500 text-[9px]" style={{ fontFamily: F }}>Would you like to reschedule your flu shot and delivery now?</p>
         <AppBtn label={clicked ? "Confirmed" : "Confirm"} onClick={go} variant="danger" />
       </Card>
     </div>
