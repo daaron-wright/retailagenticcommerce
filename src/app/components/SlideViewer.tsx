@@ -18,7 +18,10 @@ import Chapter3Panel from "../../imports/Chapter3Panel30/Chapter3Panel30";
 import Chapter3Panel32 from "../../imports/Chapter3Panel32-1/Chapter3Panel32-19-5969";
 import KyndrylWhiteLogo from "../../imports/Kyndryl-3/Kyndryl-19-5998";
 import { GlassNotification } from "./GlassNotification";
+import { SKUAlertPanel } from "./SKUAlertPanel";
+import { ReorderApprovalPanel } from "./ReorderApprovalPanel";
 import { MonitorPlay } from "lucide-react";
+import { chapterRoutes } from "./chapterRoutes";
 
 const F = "'Open Sans', sans-serif";
 
@@ -38,6 +41,37 @@ function PersonaSmall({ src }: { src: string }) {
   );
 }
 
+function GlassAlertNotification({ title, message, action, onAction }: { title: string; message: string; action: string; onAction?: () => void }) {
+  const [clicked, setClicked] = useState(false);
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setClicked(true);
+    setTimeout(() => onAction?.(), 600);
+  };
+  return (
+    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 w-[360px] border border-white/10 space-y-3">
+      <button className="w-full bg-red-500/15 border border-red-400/30 rounded-lg px-3 py-2 flex items-center gap-2 cursor-default" style={{ background: "none", backgroundColor: "rgba(239,68,68,0.15)" }}>
+        <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+        <p className="text-red-300 text-[12px]" style={{ fontFamily: F, fontWeight: 600 }}>{title}</p>
+      </button>
+      <p className="text-white/70 text-[12px] leading-[18px]" style={{ fontFamily: F }}>{message}</p>
+      <div className="pt-1">
+        <button
+          onClick={handleClick}
+          className={`text-white text-[12px] py-2 px-5 rounded-full inline-block transition-all duration-300 cursor-pointer ${
+            clicked
+              ? "bg-gradient-to-b from-[#22c55e] to-[#16a34a]"
+              : "bg-gradient-to-b from-[#5b6dde] to-[#273489] hover:from-[#6b7dee] hover:to-[#374499]"
+          }`}
+          style={{ fontFamily: F, fontWeight: 600 }}
+        >
+          {clicked ? "✓ Done" : action}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
   const F2 = "'Open Sans', sans-serif";
   const [clicked, setClicked] = useState(false);
@@ -45,6 +79,7 @@ function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
   const [quantities, setQuantities] = useState([2, 3, 1, 2]);
   const [checkedSuppliers, setCheckedSuppliers] = useState<boolean[]>([false, false, false]);
   const [loadingPhase, setLoadingPhase] = useState<"spin" | "done">("spin");
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     if (type === "loading") {
@@ -193,49 +228,74 @@ function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
   }
 
   if (type === "approve-order") {
-    const orders = [
-      { name: "SKU 1243 (Water)", detail: "1,200 units" },
-      { name: "SKU 6789 (Batteries)", detail: "850 units" },
-      { name: "SKU 9012 (Generators)", detail: "420 units" },
+    const skus = [
+      { name: "Yankee Candle: Large Jar Candles", sku: "SKU-3371", location: "Southeast DC", cover: "2 days cover remaining", qty: "8,000 cases", priority: "high" as const },
+      { name: "Fancy Feast Wet Cat Food: 12pk", sku: "SKU-4482", location: "Southeast DC", cover: "2.1 days cover remaining", qty: "6,000 cases", priority: "high" as const },
+      { name: "Dannon Greek Yogurt: 12pk", sku: "SKU-5590", location: "Southeast DC", cover: "1.9 days cover remaining", qty: "5,000 cases", priority: "critical" as const },
     ];
-    const toggleOrder = (idx: number, e: React.MouseEvent) => {
-      e.stopPropagation();
-      setCheckedSuppliers(prev => prev.map((v, i) => i === idx ? !v : v));
-    };
 
     return (
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 w-[360px] border border-white/10 space-y-3">
-        <p className="text-white text-[14px]" style={{ fontFamily: F2, fontWeight: 600 }}>Demand Approval</p>
-        <div className="bg-blue-500/15 border border-blue-400/30 rounded-lg px-4 py-2">
-          <p className="text-blue-300 text-[11px]" style={{ fontFamily: F2 }}>Planning Agent Recommendation</p>
-        </div>
-        <div className="space-y-2 text-[12px]" style={{ fontFamily: F2 }}>
-          {orders.map((o, i) => (
-            <button
-              key={i}
-              onClick={(e) => toggleOrder(i, e)}
-              className={`w-full flex justify-between items-center px-2 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ${
-                checkedSuppliers[i] ? "bg-green-500/15 border border-green-400/30" : "hover:bg-white/5 border border-transparent"
-              }`}
-            >
-              <span className="text-white/50 flex items-center gap-2">
-                <span className={`inline-block w-3 h-3 rounded-sm border transition-all flex items-center justify-center ${
-                  checkedSuppliers[i] ? "bg-green-500 border-green-400" : "border-white/30"
-                }`}>
-                  {checkedSuppliers[i] && <svg viewBox="0 0 12 12" className="w-2.5 h-2.5"><path d="M3 6l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/></svg>}
-                </span>
-                {o.name}
-              </span>
-              <span className="text-white/90 font-medium">{o.detail}</span>
-            </button>
-          ))}
-          <div className="flex justify-between px-2 pt-1 border-t border-white/10 mt-1">
-            <span className="text-white/50">Fulfillment ETA</span>
-            <span className="text-green-400">6-8 hours</span>
+      <div className="rounded-2xl overflow-hidden w-[380px] shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+        {/* Red header */}
+        <div className="bg-[#dc2626] px-4 py-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <p className="text-white text-[11px]" style={{ fontFamily: F2, fontWeight: 600 }}>Demand Planning Alert: SKU Reorder Required</p>
           </div>
+          <span className="text-white/60 text-[14px] leading-none">✕</span>
         </div>
-        <div className="pt-2">
-          <button onClick={handleButtonClick} className={`${pillBase} ${pillActive}`} style={{ fontFamily: F2 }}>
+
+        {/* White body */}
+        <div className="bg-white px-4 py-3.5" style={{ fontFamily: F2 }}>
+          {/* Overview box */}
+          <div className="border border-dashed border-[#ccc] rounded-lg p-3 mb-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[#dc2626] text-[9px] font-bold tracking-wider uppercase">Overview</span>
+              <span className="text-[#cc8844] text-[8px] font-semibold tracking-wider uppercase">Planning Agent</span>
+            </div>
+            <ul className="space-y-1.5">
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-[#cc8844] mt-[5px] shrink-0" />
+                <p className="text-[#333] text-[10px] leading-[15px]">3 critical SKUs at Southeast DC are running below threshold. Average supplier fulfilment time is <strong>12 days</strong>.</p>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-[#cc8844] mt-[5px] shrink-0" />
+                <p className="text-[#333] text-[10px] leading-[15px]">Emergency reorder quantities pre-calculated to restore <strong>20 days cover</strong>.</p>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-[#dc2626] mt-[5px] shrink-0" />
+                <p className="text-[#dc2626] text-[10px] leading-[15px]">Approval required before the 2:00 PM cut-off.</p>
+              </li>
+            </ul>
+          </div>
+
+          {/* SKU cards */}
+          <p className="text-[#333] text-[9px] font-bold tracking-wider uppercase mb-2">SKUs Requiring Approval</p>
+          <div className="space-y-2 mb-3">
+            {skus.map((item, i) => (
+              <div key={i} className="border border-[#e5e5e5] rounded-lg px-3 py-2 flex items-center justify-between">
+                <div>
+                  <p className="text-[#222] text-[11px] font-bold">{item.name}</p>
+                  <p className="text-[#888] text-[9px] mt-0.5">{item.sku}, {item.location}, <span className="font-semibold text-[#555]">{item.cover}</span></p>
+                  <p className="text-[#666] text-[9px] mt-0.5">Reorder: <strong>{item.qty}</strong></p>
+                </div>
+                <span className={`text-[9px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
+                  item.priority === "critical" ? "bg-[#fff0e0] text-[#cc6600]" : "bg-[#fff5e5] text-[#cc8800]"
+                }`}>{item.priority === "critical" ? "Critical Priority" : "High Priority"}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Approve button */}
+          <button
+            onClick={handleButtonClick}
+            className="w-full text-white text-[12px] font-bold py-2.5 rounded-lg cursor-pointer transition-all"
+            style={{
+              fontFamily: F2,
+              background: clicked ? "#16a34a" : "#dc2626",
+              transform: clicked ? "scale(0.98)" : "scale(1)",
+            }}
+          >
             {clicked ? "✓ Demand Approved" : "Approve Demand"}
           </button>
         </div>
@@ -323,42 +383,7 @@ function AppUI({ type, onAction }: { type?: string; onAction?: () => void }) {
   return null;
 }
 
-// Chapter route config
-export const chapterRoutes: { path: string; label: string; chapterFilter: (s: Screen, i: number) => boolean; nextRoute?: string; prevRoute?: string }[] = [
-  {
-    path: "opening",
-    label: "Opening",
-    chapterFilter: (s) => s.id === "opening",
-    nextRoute: "/chapter-1",
-  },
-  {
-    path: "chapter-1",
-    label: "Chapter 1",
-    chapterFilter: (s) => s.chapter === 1 && s.id !== "opening",
-    nextRoute: "/chapter-2",
-    prevRoute: "/opening",
-  },
-  {
-    path: "chapter-2",
-    label: "Chapter 2",
-    chapterFilter: (s) => s.chapter === 2,
-    nextRoute: "/chapter-3",
-    prevRoute: "/chapter-1",
-  },
-  {
-    path: "chapter-3",
-    label: "Chapter 3",
-    chapterFilter: (s) => s.chapter === 3 && s.type !== "closing" && s.type !== "closingLogo",
-    nextRoute: "/closing",
-    prevRoute: "/chapter-2",
-  },
-  {
-    path: "closing",
-    label: "Closing",
-    chapterFilter: (s) => s.type === "closing" || s.type === "closingLogo",
-    prevRoute: "/chapter-3",
-  },
-];
+// chapterRoutes imported from ./chapterRoutes
 
 export function SlideViewer({ chapterPath }: { chapterPath: string }) {
   const navigate = useNavigate();
@@ -376,26 +401,49 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
     setTooltipOpen(false);
   }, [localIndex, chapterPath]);
 
-  // Reset index when chapter changes
+  // Reset index when chapter changes (check for stored index from back-navigation)
   useEffect(() => {
-    setLocalIndex(0);
+    const stored = sessionStorage.getItem("slideIndex");
+    if (stored) {
+      setLocalIndex(Number(stored));
+      sessionStorage.removeItem("slideIndex");
+    } else {
+      setLocalIndex(0);
+    }
   }, [chapterPath]);
 
   const advance = useCallback(() => {
     if (localIndex < chapterScreens.length - 1) {
       setLocalIndex(localIndex + 1);
-    } else if (routeConfig.nextRoute) {
-      navigate(routeConfig.nextRoute);
+    } else {
+      // Move to the first slide of the next chapter
+      const globalIdx = screens.indexOf(chapterScreens[localIndex]);
+      if (globalIdx < screens.length - 1) {
+        const nextScreen = screens[globalIdx + 1];
+        const nextRoute = chapterRoutes.find((r) => r.chapterFilter(nextScreen, globalIdx + 1));
+        if (nextRoute) navigate("/" + nextRoute.path);
+      }
     }
-  }, [localIndex, chapterScreens.length, routeConfig.nextRoute, navigate]);
+  }, [localIndex, chapterScreens, navigate]);
 
   const goBack = useCallback(() => {
     if (localIndex > 0) {
       setLocalIndex(localIndex - 1);
-    } else if (routeConfig.prevRoute) {
-      navigate(routeConfig.prevRoute);
+    } else {
+      // Move to the last slide of the previous chapter
+      const globalIdx = screens.indexOf(chapterScreens[0]);
+      if (globalIdx > 0) {
+        const prevScreen = screens[globalIdx - 1];
+        const prevRoute = chapterRoutes.find((r) => r.chapterFilter(prevScreen, globalIdx - 1));
+        if (prevRoute) {
+          const prevChapterScreens = screens.filter((s, i) => prevRoute.chapterFilter(s, i));
+          // Navigate and set index to last slide — use sessionStorage to pass the index
+          sessionStorage.setItem("slideIndex", String(prevChapterScreens.length - 1));
+          navigate("/" + prevRoute.path);
+        }
+      }
     }
-  }, [localIndex, routeConfig.prevRoute, navigate]);
+  }, [localIndex, chapterScreens, navigate]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -411,8 +459,8 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
   const globalIndex = screens.indexOf(screen);
   const isRedBg = screen.background === "red";
   const isSceneBg = screen.background === "scene" || screen.background === "dark" || screen.background === "storm";
-  const isFirst = localIndex === 0 && !routeConfig.prevRoute;
-  const isLast = localIndex === chapterScreens.length - 1 && !routeConfig.nextRoute;
+  const isFirst = globalIndex === 0;
+  const isLast = globalIndex === screens.length - 1;
 
   // Determine if explainer card should show based on tooltip state
   const hasOverlayCard = !!screen.overlayCard;
@@ -457,7 +505,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               muted
               playsInline
               onCanPlay={() => setVideoReady(true)}
-              className={`absolute inset-0 w-full h-full ${bgVideo?.includes("Screen_Recording") || bgVideo?.includes("chicago_trips") ? "object-contain" : "object-cover"} transition-opacity duration-500 ${videoReady ? "opacity-100" : "opacity-0"} ${screen.chapter === 2 ? "saturate-50 contrast-75" : ""}`}
+              className={`absolute inset-0 w-full h-full ${bgVideo?.includes("Screen_Recording") ? "object-contain" : "object-cover"} transition-opacity duration-500 ${videoReady ? "opacity-100" : "opacity-0"} ${screen.chapter === 2 ? "saturate-50 contrast-75" : ""}`}
             >
               <source src={bgVideo} />
             </video>
@@ -487,7 +535,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               {screen.type === "opening" ? (
                 <>
                   {!screen.backgroundVideo && <TimelapseBackground />}
-                  <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)] backdrop-blur-[0.5px]" />
+                  <div className="absolute inset-0 bg-[rgba(0,0,0,0.35)] backdrop-blur-[0.5px]" />
                 </>
               ) : screen.chapter === 3 ? (
                 <>
@@ -533,11 +581,8 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               {/* === OPENING === */}
               {screen.type === "opening" && (
                 <div className="absolute left-[47px] bottom-[140px]">
-                  <p className="text-white/60 text-[14px] tracking-[3px] uppercase mb-3" style={{ fontFamily: F, letterSpacing: "3px" }}>
-                    {screen.title}
-                  </p>
                   <p className="text-white text-[48px] leading-[1.1]" style={{ fontFamily: F, fontWeight: 300 }}>
-                    {screen.subtitle}
+                    Agentic Orchestration Center
                   </p>
                 </div>
               )}
@@ -560,7 +605,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               {screen.type === "chapterIntro" && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div>
-                    <p className="text-white/60 text-[14px] tracking-[3px] uppercase mb-3" style={{ fontFamily: F, letterSpacing: "3px" }}>{screen.title}</p>
+                    {screen.title && <p className="text-white/60 text-[14px] tracking-[3px] uppercase mb-3" style={{ fontFamily: F, letterSpacing: "3px" }}>{screen.title}</p>}
                     <p className="text-white text-[48px] leading-[1.1]" style={{ fontFamily: F, fontWeight: 300 }}>{screen.subtitle}</p>
                   </div>
                 </div>
@@ -597,7 +642,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <RedTooltip onClick={handleTooltipToggle} active={tooltipOpen} />
                       </div>
                       <div
-                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[575px]" : "left-[86px] top-[524px]"}`}
+                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[600px]" : "left-[86px] top-[524px]"}`}
                         style={{
                           opacity: showExplainer ? 1 : 0,
                           transform: showExplainer ? "scaleY(1)" : "scaleY(0)",
@@ -608,16 +653,12 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <ExplainerCard text={screen.overlayCard!.text} />
                       </div>
                     </>
-                  ) : (
-                    <div className={`absolute ${screen.chapter === 3 ? "left-[200px] top-[545px]" : "left-[calc(12.5%+101.75px)] top-[533px]"}`}>
-                      <RedTooltip />
-                    </div>
-                  )}
+                  ) : null}
 
                   {screen.appUIType && (
                     <div className="absolute right-[calc(12.5%+28px)] top-1/2 -translate-y-1/2">
                       {(screen.chapter === 1 || screen.id === "ch3-s11") ? (
-                        <div className="scale-[0.95] origin-right">
+                        <div className="scale-[0.95] origin-right cursor-pointer" onClick={advance}>
                           <PhoneMockup>
                             <div className="w-full h-full relative">
                               <HarvestAppUI type={screen.appUIType} onAction={advance} />
@@ -643,9 +684,6 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                   <p className="absolute text-white text-[20px] leading-[28px] tracking-[0.064px] w-[485px] whitespace-pre-wrap"
                     style={{ fontFamily: F, fontWeight: 400, left: "47px", top: "calc(50% - 100px)" }}
                   >{screen.body}</p>
-                  <div className={`absolute ${screen.chapter === 3 ? "left-[200px] top-[545px]" : "left-[calc(12.5%+101.75px)] top-[533px]"}`}>
-                    <RedTooltip />
-                  </div>
                   {screen.notificationCard && (
                     <div className={`absolute ${screen.chapter === 1 ? "right-[calc(12.5%+28px)] top-1/2 -translate-y-1/2" : "right-[80px] top-[138px]"}`}>
                       {screen.chapter === 1 ? (
@@ -661,7 +699,12 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                           </div>
                         </PhoneMockup>
                       ) : (
-                        <NotificationCard {...screen.notificationCard} onAction={advance} />
+                        <GlassAlertNotification
+                          title={screen.notificationCard.title}
+                          message={screen.notificationCard.message}
+                          action={screen.notificationCard.action}
+                          onAction={advance}
+                        />
                       )}
                     </div>
                   )}
@@ -706,7 +749,7 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <RedTooltip onClick={handleTooltipToggle} active={tooltipOpen} />
                       </div>
                       <div
-                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[575px]" : "left-[86px] top-[524px]"}`}
+                        className={`absolute transition-all duration-300 ${screen.chapter === 3 ? "left-[160px] top-[600px]" : "left-[86px] top-[524px]"}`}
                         style={{
                           opacity: showExplainer ? 1 : 0,
                           transform: showExplainer ? "scaleY(1)" : "scaleY(0)",
@@ -717,14 +760,34 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
                         <ExplainerCard text={screen.overlayCard!.text} />
                       </div>
                     </>
-                  ) : (
-                    <div className={`absolute ${screen.chapter === 3 ? "left-[200px] top-[545px]" : "left-[calc(12.5%+101.75px)] top-[533px]"}`}>
-                      <RedTooltip />
-                    </div>
-                  )}
+                  ) : null}
 
-                  {/* Dashboard: iframe or DashboardUI */}
-                  {screen.iframeUrl ? (
+                  {/* Dashboard: custom panel, iframe, or DashboardUI */}
+                  {screen.customPanel === "reorder-approval" ? (
+                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580, maxHeight: 'calc(100% - 200px)' }}>
+                      <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#5b6dde] animate-pulse" />
+                          <span className="text-white/90 text-[11px] tracking-wider uppercase" style={{ fontWeight: 600 }}>Agentic Orchestration Center</span>
+                        </div>
+                      </div>
+                      <div className="flex-1 w-full relative overflow-auto bg-[#f5f5f5] p-4">
+                        <ReorderApprovalPanel onNext={advance} />
+                      </div>
+                    </div>
+                  ) : screen.customPanel === "sku-alert" ? (
+                    <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580, maxHeight: 'calc(100% - 200px)' }}>
+                      <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/10 bg-white/[0.02]">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#5b6dde] animate-pulse" />
+                          <span className="text-white/90 text-[11px] tracking-wider uppercase" style={{ fontWeight: 600 }}>Agentic Orchestration Center</span>
+                        </div>
+                      </div>
+                      <div className="flex-1 w-full relative overflow-auto bg-[#f5f5f5] p-4">
+                        <SKUAlertPanel onResolve={advance} />
+                      </div>
+                    </div>
+                  ) : screen.iframeUrl ? (
                     <div className="absolute right-[40px] top-[100px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] bg-[rgba(10,10,18,0.4)] flex flex-col" style={{ width: 580, height: 620 }}>
                       {screen.id === "ch2-s3" ? (
                         <ControlTowerDashboard />
@@ -852,20 +915,36 @@ export function SlideViewer({ chapterPath }: { chapterPath: string }) {
               <path d="M8 2L4 6L8 10" stroke={isFirst ? 'rgba(255,255,255,0.2)' : 'white'} strokeWidth="1.5" />
             </svg>
           </button>
-          <button
-            onClick={advance}
-            disabled={isLast}
-            className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all"
-            style={{
-              background: isLast ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.12)',
-              cursor: isLast ? 'not-allowed' : 'pointer',
-              border: '1px solid rgba(255,255,255,0.1)',
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
-              <path d="M4 2L8 6L4 10" stroke={isLast ? 'rgba(255,255,255,0.2)' : 'white'} strokeWidth="1.5" />
-            </svg>
-          </button>
+          {isLast ? (
+            <a
+              href="https://retail-day-demo-frontend.wittyfield-f31b523c.eastus2.azurecontainerapps.io/dashboard/supply-chain"
+              target="_blank"
+              rel="noreferrer"
+              className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all hover:bg-white/20"
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                cursor: 'pointer',
+                border: '1px solid rgba(255,255,255,0.1)',
+              }}
+              title="Open Interactive Demo"
+            >
+              <MonitorPlay className="w-[16px] h-[16px] text-white" />
+            </a>
+          ) : (
+            <button
+              onClick={advance}
+              className="w-[44px] h-[44px] rounded-full flex items-center justify-center transition-all"
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                cursor: 'pointer',
+                border: '1px solid rgba(255,255,255,0.1)',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+                <path d="M4 2L8 6L4 10" stroke="white" strokeWidth="1.5" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
     </div>

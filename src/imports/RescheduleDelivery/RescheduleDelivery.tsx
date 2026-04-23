@@ -13,7 +13,7 @@ function HomeDelivery() {
         <p className="leading-[45px] mb-0">{`Due to the winter storm, `}</p>
         <p className="leading-[45px] mb-0">home delivery is unavailable.</p>
         <p className="leading-[45px] mb-0">{`You may pick your order up `}</p>
-        <p className="leading-[45px]">in-store between 8pm - 10am.</p>
+        <p className="leading-[45px]">in-store between 8am - 10pm.</p>
       </div>
       <p className="-translate-x-1/2 absolute font-['TWK_Everett:Regular',sans-serif] h-[36px] leading-[25px] left-[calc(37.5%+302.5px)] not-italic text-[#3d3c3c] text-[16px] text-center top-[887.37px] w-[479px]">Would you like to reschedule your flu shot and delivery now?</p>
       <div className="absolute h-[36.246px] left-[calc(62.5%+3.67px)] top-[561.63px] w-[35.75px]">

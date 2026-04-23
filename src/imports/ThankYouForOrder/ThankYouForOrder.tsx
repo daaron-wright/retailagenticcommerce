@@ -161,7 +161,7 @@ export default function ThankYouForOrder() {
         <p className="leading-[44px] mb-0">{`This is the confirmation `}</p>
         <p className="leading-[44px] mb-0">for your in-store pick-up.</p>
         <p className="leading-[44px] mb-0">{`Your order will be available `}</p>
-        <p className="leading-[44px] mb-0">{`between 8pm - 10am `}</p>
+        <p className="leading-[44px] mb-0">{`between 8am - 10pm `}</p>
         <p className="leading-[44px] mb-0">(the following day)</p>
         <p className="leading-[44px] mb-0">&nbsp;</p>
         <p className="leading-[44px]">Thank you for shopping with us!</p>
